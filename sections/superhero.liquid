@@ -3,7 +3,7 @@
 
     <div class="flex">
 
-      <div class="item-superhero item-superhero-1 w-12 w-lg-6">
+      <div class="item-superhero item-superhero-1 w-12 ">
         <div class="in-item-superhero-i">
           <div class="sidecontainer-i">
 
@@ -92,7 +92,7 @@
           </figure>
         {% endif %}
       </div>
-      <div class="item-superhero item-superhero-2 w-12 w-lg-6">
+      <div class="item-superhero item-superhero-2 w-12 d-none">
         {% if section.settings.image != blank %}
           <figure class="media-superhero-i">
             {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'eager' }}
