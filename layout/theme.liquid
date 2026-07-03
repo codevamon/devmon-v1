@@ -58,8 +58,8 @@
     <!-- YOUR SYSTEM (DESPUÉS DE BOOTSTRAP) -->
     {{ 'wagon.css' | asset_url | stylesheet_tag }}
     {{ 'home.css' | asset_url | stylesheet_tag }}
-    {{ 'master.css' | asset_url | stylesheet_tag }}
     {{ 'fonts.css' | asset_url | stylesheet_tag }}
+    {{ 'master.css' | asset_url | stylesheet_tag }}
  
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}

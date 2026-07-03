@@ -46,11 +46,11 @@
     text-align: center;
     justify-content: center;
     grid-gap: 1vw;
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
   }
   .cart-drawer--empty .cart-drawer__heading {
     text-align: center;
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
     text-transform: uppercase;
     font-weight: 800;
   }
@@ -96,7 +96,7 @@
   }
   .menu-drawer.color-scheme-1 ul.menu-drawer__menu.has-submenu a {
     color: var(--color-blanco);
-    font-family: 'obviously-narrow';
+    font-family: var(--font-display);
     text-transform: uppercase;
     font-weight: 600;
   }
@@ -2411,7 +2411,7 @@ span.icon-i img {
   }
   .field-wagon input,
   .field-wagon textarea {
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
     padding: 0.5vw;
     border-radius: 1vw;
     border: 0.881px solid var(--color-chocolat);
@@ -2557,7 +2557,7 @@ span.icon-i img {
   }
   .field-wagon input,
   .field-wagon textarea {
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
     padding: .8vw;
     border-radius: 1vw;
     border: 0.881px solid var(--color-chocolat);
@@ -2688,7 +2688,7 @@ span.icon-i img {
   }
   .field-wagon input,
   .field-wagon textarea {
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
     padding: 1vw;
     border-radius: 1vw;
     border: 0.881px solid var(--color-chocolat);
@@ -2831,7 +2831,7 @@ span.icon-i img {
   }
   .field-wagon input,
   .field-wagon textarea {
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
     padding: 1vw;
     border-radius: 1vw;
     border: 0.881px solid var(--color-chocolat);
@@ -2961,7 +2961,7 @@ span.icon-i img {
   }
   .field-wagon input,
   .field-wagon textarea {
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
     padding: 1vw;
     border-radius: 1vw;
     border: 0.881px solid var(--color-chocolat);
@@ -3207,7 +3207,7 @@ span.icon-i img {
   }
   .field-wagon input,
   .field-wagon textarea {
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
     padding: 1vw;
     border-radius: 1vw;
     border: 0.881px solid rgba(55, 34, 35, 0.50);

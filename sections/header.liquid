@@ -411,7 +411,15 @@
       </div>
     {% endif %}
   </div>
-  {% assign navbar_menu = linklists.navbar %}
+  {% liquid
+    assign wagon_menu = blank
+    for block in section.blocks
+      if block.type == '_header-menu'
+        assign wagon_menu = block.settings.menu
+        break
+      endif
+    endfor
+  %}
 
   <aside class="content-header">
     <div class="container-i">
@@ -419,9 +427,9 @@
 
         <div class="first">
           <nav class="navbar-menu-i d-none d-lg-flex" aria-label="Main navigation">
-            {% if navbar_menu.links.size > 0 %}
+            {% if wagon_menu != blank and wagon_menu.links.size > 0 %}
               <ul class="navbar-menu-i__list">
-                {% for link in navbar_menu.links %}
+                {% for link in wagon_menu.links %}
                   {% assign link_title_downcase = link.title | downcase %}
 
                   <li class="navbar-menu-i__item{% if link.active or link.child_active %} is-active{% endif %}{% if link.links.size > 0 %} has-submenu{% endif %}{% if link_title_downcase contains 'shop' %} has-minishop{% endif %}">
@@ -507,12 +515,14 @@
   </aside>
   {% assign shop_menu_link = blank %}
 
-  {% for link in navbar_menu.links %}
+  {% if wagon_menu != blank %}
+  {% for link in wagon_menu.links %}
     {% assign link_title_downcase = link.title | downcase %}
     {% if link_title_downcase contains 'shop' and link.links.size > 0 %}
       {% assign shop_menu_link = link %}
     {% endif %}
   {% endfor %}
+  {% endif %}
 
   {% if shop_menu_link != blank and shop_menu_link.links.size > 0 %}
     <div class="minishop-menu collapse d-none d-lg-block" id="minishop-menu-collapse">
@@ -583,9 +593,9 @@
         <div class="content-bigmenu">
 
           <nav class="nav-bigmenu" aria-label="Mobile menu">
-            {% if navbar_menu.links.size > 0 %}
+            {% if wagon_menu != blank and wagon_menu.links.size > 0 %}
               <ul class="list-bigmenu">
-                {% for link in navbar_menu.links %}
+                {% for link in wagon_menu.links %}
                   <li class="item-bigmenu{% if link.active or link.child_active %} is-active{% endif %}{% if link.links.size > 0 %} has-submenu{% endif %}">
 
                     {% if link.links.size > 0 %}

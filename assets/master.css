@@ -24,13 +24,48 @@
 		--button-size-sm: 1.1vw;
 		--button-size-md: 1.3vw;
 		--button-size: 1.1vw;
-		--color-chocolat: #372223;
-		--color-orange: #FF791F;
-		--color-tumeric: #FFC80A;
-		--color-dark-ivory: #F9EAD6;
-		--color-ivory: #FFF3E3;
-		--color-light-ivory: #FAF5EF;
-		--color-white:#FFFFFF;
+
+		/* ==========================================================================
+		   Devmon Design Tokens v1
+		   ========================================================================== */
+
+		/* Brand colors */
+		--color-inner-glow: #FCFBE3;
+		--color-100: #FFEDED;
+		--color-200: #FFDCE0;
+		--color-300: #FFB6D2;
+		--color-400: #FF7AA4;
+		--color-500: #FF427E;
+		--color-wild-pulse: #E60259;
+		--color-600: #B8003A;
+		--color-700: #8A002C;
+		--color-800: #61001F;
+		--color-900: #380012;
+
+		/* Legacy aliases */
+		--color-chocolat: var(--color-900);
+		--color-orange: var(--color-wild-pulse);
+		--color-tumeric: var(--color-300);
+		--color-ivory: var(--color-inner-glow);
+		--color-light-ivory: var(--color-100);
+		--color-dark-ivory: var(--color-200);
+
+		/* Neutrals */
+		--color-core-power: #000000;
+		--color-white: #FFFFFF;
+
+		/* ==========================================================================
+		   Devmon Typography Tokens
+		   ========================================================================== */
+
+		--font-reckless-condensed: "Reckless Condensed", serif;
+		--font-pp-mori: "PP Mori", sans-serif;
+		--font-ibm-plex-mono: "IBM Plex Mono", monospace;
+
+		--font-display: var(--font-reckless-condensed);
+		--font-heading: var(--font-reckless-condensed);
+		--font-body: var(--font-pp-mori);
+		--font-mono: var(--font-ibm-plex-mono);
 
 
 
@@ -153,13 +188,13 @@
 	.he-s, .he-s *, 
 	.he-xs, .he-xs *,
 	.he-xxs, .he-xxs *{
-		font-family:'Turnkey Condensed', sans-serif;
+		font-family: var(--font-display);
 		line-height:1;
 		letter-spacing: 0;
 	}
 	.he-l, .he-l *,
 	.he-m, .he-m *{
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-display);
 		line-height:1;
 		letter-spacing: -5%;
 	}
@@ -167,40 +202,42 @@
 	form input[type="email"],
 	.bo-xxl, .bo-xxl *, 
 	.bo-xl, .bo-xl *{
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
 		line-height:1;
 		letter-spacing: -3%;
 	} 
 	.bo-l, .bo-l *{
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
 		line-height:1;
 		letter-spacing: -2%;
 	}
 	.bo-m, .bo-m *{
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
 		line-height:1.15;
 		letter-spacing: -3%;
 	}
 	.bo-s, .bo-s *{
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
 		line-height:1.3;
 		letter-spacing: -2%;
 	} 
 	.bo-xs, .bo-xs *{
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
 		line-height:1.3;
 		letter-spacing: -4%;
 	}
 	.bo-xxs, .bo-xxs * {
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
 		letter-spacing: -2%;
 	}
-	+
 	.sp-i, .sp-i * {
-		font-family:'inter', sans-serif;
+		font-family: var(--font-mono);
+	}
+	.code, .code * {
+		font-family: var(--font-mono);
 	}
 	.number-i {
-		font-family: 'Turnkey Condensed';
+		font-family: var(--font-display);
 		line-height: 1;
 	}
 	.sealsubs-container:after{
@@ -249,7 +286,7 @@
 	}
 	.btn-i, .btn-ii, .btn-iii,
 	.btn-i *, .btn-ii *, .btn-iii *{
-		font-family:'stevie-sans', sans-serif;
+		font-family: var(--font-body);
 	}
 
 
