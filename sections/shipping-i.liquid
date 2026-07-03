@@ -1,0 +1,193 @@
+<section class="shipping-i">
+  <div class="in-shipping-i container-i">
+    <div class="flex-i gap-i align-start">
+
+      <div class="item-shipping-i item-shipping-i-1 w-12 w-md-4">
+        {% if section.settings.heading != blank %}
+          <div class="he-l fw-regular">
+            <h2>{{ section.settings.heading }}</h2>
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="item-shipping-i item-shipping-i-2 w-12 w-md-8">
+        <div class="grid-shipping-i">
+
+          {% for block in section.blocks %}
+            <div class="card-shipping-i" {{ block.shopify_attributes }}>
+              <div class="head-card-shipping-i">
+                {% if block.settings.icon != blank %}
+                  <figure class="icon-shipping-i">
+                    {{ block.settings.icon }}
+                  </figure>
+                {% endif %}
+
+                {% if block.settings.title != blank %}
+                  <div class="bo-s fw-semibold">
+                    <h3>{{ block.settings.title }}</h3>
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if block.settings.content != blank %}
+                <div class="body-card-shipping-i bo-xs fw-regular">
+                  {{ block.settings.content }}
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .shipping-i {
+    padding: var(--padding-section) 0;
+    background: var(--color-dark-ivory);
+    color: var(--color-chocolat);
+  }
+
+  .shipping-i .he-l h2 {
+    margin: 0;
+    line-height: 0.95;
+  }
+
+  .grid-shipping-i {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1vw;
+  }
+
+  .card-shipping-i {
+    background: var(--color-tumeric);
+    min-height: 11vw;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4vw;
+  }
+
+  .head-card-shipping-i {
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+  }
+
+  .icon-shipping-i {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-shipping-i svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .body-card-shipping-i ul {
+    margin: 0;
+    padding-left: 1vw;
+  }
+
+  .body-card-shipping-i li {
+    margin-bottom: 0.5vw;
+  }
+
+  .body-card-shipping-i p {
+    margin: 0;
+  }
+
+  @media screen and (max-width: 991px) {
+    .grid-shipping-i {
+      grid-template-columns: 1fr;
+      gap: 3vw;
+    }
+
+    .card-shipping-i {
+      min-height: initial;
+      padding: 6vw;
+      gap: 3vw;
+    }
+
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Shipping I",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shipping\n& Delivery"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Shipping card",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon",
+          "label": "Icon SVG"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Shipping"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<ul><li>Ships in 1–2 business days</li><li>Tracking provided after dispatch</li></ul>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shipping I",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Shipping",
+            "content": "<ul><li>Ships in 1–2 business days (Mon–Thu)</li><li>Tracking provided after dispatch</li><li>Heat-sensitive item — special shipping may apply</li></ul>"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Delivery",
+            "content": "<ul><li>Delivery times calculated at checkout</li><li>Carrier handles delivery once shipped</li></ul>"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Returns",
+            "content": "<ul><li>Due to the perishable nature of our products, all sales are final</li><li>If your order arrives damaged, please contact us within 24 hours with photos</li></ul>"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Reassurance line",
+            "content": "<ul><li>Each order is carefully packed by hand to ensure it arrives in perfect condition</li></ul>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

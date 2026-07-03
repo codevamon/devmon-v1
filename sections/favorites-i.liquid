@@ -1,0 +1,171 @@
+<section class="favorites-i">
+  <div class="in-favorites-i">
+
+    <div class="flex gap-i _1">
+      <div class="item-favorites-i item-favorites-i-1 w-12 w-md-4">
+        <div class="sidecontainer-i">
+          <div class="in-item-favorites-i">
+
+            {% if section.settings.eyebrow != blank %}
+              <div class="bo-xs fw-regular">
+                <p>{{ section.settings.eyebrow }}</p>
+              </div>
+            {% endif %}
+
+            {% if section.settings.heading != blank %}
+              <div class="he-l fw-regular">
+                <h2>{{ section.settings.heading }}</h2>
+              </div>
+            {% endif %}
+
+
+          </div>
+          <div class="in-item-favorites-ii d-none d-md-block">
+            {% if section.settings.button_label != blank %}
+              <a class="btn-i btn-tumeric withicon" href="{{ section.settings.button_url }}">
+                <span class="btn-text">{{ section.settings.button_label }}</span>
+                <span class="btn-icon"><i class="bi bi-chevron-right"></i></span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="item-favorites-i item-favorites-i-2 w-12 w-md-8">
+        {% assign selected_collection = section.settings.collection %}
+
+        {% if selected_collection != blank and selected_collection.products.size > 0 %}
+          <div class="splide favorites-splide-i" aria-label="{{ section.settings.heading | escape }}">
+            <div class="splide__track">
+              <ul class="splide__list">
+
+                {% for product in selected_collection.products limit: section.settings.products_limit %}
+                  <li class="splide__slide">
+                    {% assign main_picture = product.metafields.custom.main_picture.value %}
+                    <a class="card-favorites-i {% if main_picture != blank %} darker{% endif %}" href="{{ product.url }}">
+                      {% if product.type != blank %}
+                        <div class="tag-favorites-i">
+                          <div class="bo-xxs">
+                            <p>{{ product.type }}</p>
+                          </div>
+                        </div>
+                      {% endif %}
+                      <div class="in-card">
+
+                        {% if main_picture != blank %}
+                          <figure class="media-favorites-i">
+                            {{ main_picture | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                          </figure>
+                        {% elsif product.featured_image != blank %}
+                          <figure class="media-favorites-i">
+                            {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                          </figure>
+                        {% endif %}
+
+                        <div class="data-favorites-i">
+                          <div class="bo-m fw-regular">
+                            <p>{{ product.title }}</p>
+                          </div>
+                        </div>
+                      </div>
+
+
+                    </a>
+                  </li>
+                {% endfor %}
+
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+        
+        {% if section.settings.button_label != blank %}
+          <a class="btn-i btn-tumeric withicon d-md-none" href="{{ section.settings.button_url }}">
+            <span class="btn-text">{{ section.settings.button_label }}</span>
+            <span class="btn-icon"><i class="bi bi-chevron-right"></i></span>
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var el = document.querySelector('.favorites-i .favorites-splide-i');
+
+    if (!el || typeof Splide === 'undefined') return;
+
+    new Splide(el, {
+      type: 'slide',
+      perPage: 3,
+      perMove: 1,
+      gap: '1vw',
+      arrows: false,
+      pagination: false,
+      drag: true,
+      breakpoints: {
+        991: {
+          perPage: 2
+        },
+        768: {
+          perPage: 1,
+          padding: {left: '5vw', right: '30vw'},
+          gap: '5vw'
+        }
+      }
+    }).mount();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Favorites I",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Products"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Handcrafted Favorites"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Products limit",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "See All Collections"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Favorites I"
+    }
+  ]
+}
+{% endschema %}

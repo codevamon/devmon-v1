@@ -1,0 +1,77 @@
+<section class="about-ii">
+  <div class="in-about-ii container-i">
+
+    <div class="flex gap-i align-center-i">
+
+      <div class="item-about-ii item-about-ii-1 w-12 w-lg-5">
+        {% if section.settings.image != blank %}
+          <figure class="media-about-ii">
+            {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+          </figure>
+        {% endif %}
+      </div>
+
+      <div class="item-about-ii item-about-ii-2 w-12 w-lg-6">
+        <div class="data-about-ii">
+
+          {% if section.settings.eyebrow != blank %}
+            <div class="bo-xxs fw-regular">
+              <p>{{ section.settings.eyebrow }}</p>
+            </div>
+          {% endif %}
+
+          {% if section.settings.heading != blank %}
+            <div class="he-m fw-regular">
+              <h2>{{ section.settings.heading }}</h2>
+            </div>
+          {% endif %}
+
+          {% if section.settings.text != blank %}
+            <div class="bo-s fw-regular">
+              <p>{{ section.settings.text }}</p>
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About II",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Founder"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Meet Uzma Sharif"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Uzma is a chocolatier and culinary expert with over 20 years of experience in the food industry. Her passion for chocolate has been a creative obsession that has driven her to create unique and exotic confections that tantalize the taste buds of chocolate lovers everywhere."
+    }
+  ],
+  "presets": [
+    {
+      "name": "About II"
+    }
+  ]
+}
+{% endschema %}

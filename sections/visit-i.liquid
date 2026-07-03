@@ -1,0 +1,150 @@
+<section class="visit-i">
+  <div class="in-visit-i">
+
+    <div class="flex">
+
+      <div class="item-visit-i item-visit-i-1 w-12 w-lg-6">
+        <div class="in-item-visit-i">
+
+          <div class="head-visit-i">
+            {% if section.settings.eyebrow != blank %}
+              <div class="bo-xs fw-regular">
+                <p>{{ section.settings.eyebrow }}</p>
+              </div>
+            {% endif %}
+
+            {% if section.settings.heading != blank %}
+              <div class="he-l fw-regular">
+                <h2>{{ section.settings.heading }}</h2>
+              </div>
+            {% endif %}
+
+            <figure class="divider-visit-i">
+              <svg xmlns="http://www.w3.org/2000/svg" width="344" height="24" viewBox="0 0 344 24" fill="none" preserveAspectRatio="none">
+                <path d="M343.5 10.78V12.98L187.17 12.98C184.1 12.98 181.09 12.52 178.9 14.67C178.89 14.68 178.91 14.7 178.9 14.71C176.22 17.41 175.5 19.65 175.5 23.77C175.5 19.84 174.43 17.73 171.94 15.07C169.71 12.69 167.05 12.99 163.79 12.99L0 12.98V10.78L163.79 10.79C167.06 10.79 169.71 10.96 171.94 8.56C174.41 5.9 175.5 3.92 175.5 0C175.5 3.92 176.43 5.89 178.9 8.56C181.13 10.96 183.93 10.79 187.21 10.79L343.5 10.79V10.78Z" fill="#372223"/>
+              </svg>
+            </figure>
+          </div>
+
+          {% if section.settings.map_embed != blank %}
+            <div class="map-visit-i">
+              {{ section.settings.map_embed }}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+      <div class="item-visit-i item-visit-i-2 w-12 w-lg-6">
+        <div class="card-visit-i">
+          <div class="in-card-visit-i">
+            <div class="header-card-visit">
+              {% if section.settings.address != blank %}
+                <div class="bo-l fw-medium">
+                  <h3>{{ section.settings.address }}</h3>
+                </div>
+              {% endif %}
+              {% if section.settings.access_note != blank %}
+                <div class="bo-xs">
+                  <p>{{ section.settings.access_note }}</p>
+                </div>
+              {% endif %}
+              <figure class="detail">
+                <svg xmlns="http://www.w3.org/2000/svg" width="207" height="12" viewBox="0 0 207 12" fill="none" preserveAspectRatio="none">
+                  <path d="M207 6.55785V7.66849L111.896 6.5528C110.416 6.5528 108.965 6.32057 107.91 7.40597C107.905 7.41102 107.915 7.42112 107.91 7.42617C106.618 8.78923 106.271 9.92007 106.271 12C106.271 10.016 105.756 8.95078 104.555 7.60791C103.481 6.40639 102.199 6.55785 100.628 6.55785L0 6.55278V5.44214L100.628 5.4472C102.204 5.4472 103.481 5.53302 104.555 4.32141C105.746 2.97854 106.271 1.97896 106.271 0C106.271 1.97896 106.719 2.97349 107.91 4.32141C108.985 5.53302 110.334 5.4472 111.915 5.4472L207 6.56289V6.55785Z" fill="#372223"/>
+                </svg>
+              </figure>
+            </div>
+            
+
+            <div class="divider-visit-i">
+              <span></span>
+            </div>
+
+            {% if section.settings.hours != blank %}
+              <div class="bo-xs">
+                {{ section.settings.hours }}
+              </div>
+            {% endif %}
+            <div class="note">
+              {% if section.settings.parking_note != blank %}
+                <div class="bo-xxs">
+                  <p>{{ section.settings.parking_note }}</p>
+                </div>
+              {% endif %}
+            </div>
+
+
+          </div>
+        </div>
+        {% if section.settings.image != blank %}
+          <figure class="bg-visit-i">
+            {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy' }}
+          </figure>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Visit I",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Location"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Visit Our Store"
+    },
+    {
+      "type": "html",
+      "id": "map_embed",
+      "label": "Google Map Embed"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Store image"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Address",
+      "default": "917 W. 18th Street.\nSuite 101"
+    },
+    {
+      "type": "textarea",
+      "id": "access_note",
+      "label": "Access note",
+      "default": "Entrance accessible from 18th Street."
+    },
+    {
+      "type": "richtext",
+      "id": "hours",
+      "label": "Hours",
+      "default": "<p>Sunday<br>12:00 - 4:00<br>Monday<br>10:00 - 6:00<br>Tuesday<br>12:00 - 6:00<br>Wed-Fri<br>10:00 - 6:00<br>Saturday<br>9:30 - 6:00</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "parking_note",
+      "label": "Parking note",
+      "default": "Please note that street parking may be limited. You have the option to park near our former location and take a short stroll over."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Visit I"
+    }
+  ]
+}
+{% endschema %}

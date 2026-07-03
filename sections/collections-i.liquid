@@ -1,0 +1,208 @@
+<section class="collections-i">
+  <div class="in-collections-i">
+    <div class="content container-i">
+      
+      <div class="head-collections-i">
+        {% if section.settings.eyebrow != blank %}
+          <div class="bo-xs">
+            <p>{{ section.settings.eyebrow }}</p>
+          </div>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <div class="he-l">
+            <h2>{{ section.settings.heading }}</h2>
+          </div>
+        {% endif %}
+
+        <figure class="detail">
+          <svg xmlns="http://www.w3.org/2000/svg" width="507" height="24" viewBox="0 0 507 24" fill="none" preserveAspectRatio="none">
+            <path d="M507 10.78V12.98L260.67 12.98C257.6 12.98 254.59 12.52 252.4 14.67C252.39 14.68 252.41 14.7 252.4 14.71C249.72 17.41 249 19.65 249 23.77C249 19.84 247.93 17.73 245.44 15.07C243.21 12.69 240.55 12.99 237.29 12.99L0 12.98V10.78L237.29 10.79C240.56 10.79 243.21 10.96 245.44 8.56C247.91 5.9 249 3.92 249 0C249 3.92 249.93 5.89 252.4 8.56C254.63 10.96 257.43 10.79 260.71 10.79L507 10.79V10.78Z" fill="#FFF3E3"/>
+          </svg>
+        </figure>
+      </div>
+
+      <div class="body-collections-i">
+        <div class="in-body">
+
+          <div class="flex-i align-end space-between">
+            {% assign selected_collection = section.settings.collection %}
+
+            {% if selected_collection != blank and selected_collection.products.size > 0 %}
+              <div class="splide collections-splide-i w-md-8 w-lg-6" aria-label="{{ section.settings.heading | escape }}">
+                <div class="splide__track">
+                  <ul class="splide__list">
+
+                    {% for product in selected_collection.products limit: section.settings.products_limit %}
+                      <li class="splide__slide">
+                        <div class="item-collections-i">
+                          <div class="flex-i gap-i">
+                            <div class="media-collections-i w-12 w-md-5">
+                              {% if product.featured_image != blank %}
+                                <figure>
+                                  {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                                </figure>
+                              {% endif %}
+                            </div>
+                            <div class="data-collections-i w-12 w-md-7">
+
+                              <div class="data-header">
+                                <div class="bo-l fw-medium">
+                                  <h3>{{ product.title }}</h3>
+                                </div>
+                                <div class="bo-s fw-bold">
+                                  <p>{{ product.price | money }}</p>
+                                </div>
+                              </div>
+
+                              <div class="data-body">
+                                {% if product.description != blank %}
+                                  <div class="bo-s fw-regular">
+                                    <p>{{ product.description | strip_html | truncate: 140 }}</p>
+                                  </div>
+                                {% endif %}
+                              </div>
+                              <div class="data-actions flex-i gap-i">
+                                <form method="post" action="/cart/add">
+                                  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                                  <button class="btn-ii btn-outline btn-ivory" type="submit">
+                                    <span class="btn-text">{{ section.settings.add_label }}</span>
+                                  </button>
+                                </form>
+
+                                <a class="btn-ii btn-outline btn-ivory" href="{{ product.url }}">
+                                  <span class="btn-text">{{ section.settings.detail_label }}</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    {% endfor %}
+
+                  </ul>
+                </div>
+
+                <div class="controls-collections-i">
+                  <div class="pagination-collections-i splide__pagination"></div>
+
+                  <div class="arrows-collections-i splide__arrows">
+                    <button class="splide__arrow splide__arrow--prev bo-s" type="button">
+                      <span><i class="bi bi-chevron-left"></i></span>
+                    </button>
+
+                    <button class="splide__arrow splide__arrow--next bo-s" type="button">
+                      <span><i class="bi bi-chevron-right"></i></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.button_label != blank %}
+              <div class="more-collections-i w-md-4">
+                <a class="btn-i btn-tumeric withicon" href="{{ section.settings.button_url }}">
+                  <span class="btn-text">{{ section.settings.button_label }}</span>
+                  <span class="btn-icon"><i class="bi bi-chevron-right"></i></span>
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if section.settings.background_image != blank %}
+      <figure class="bg-collections-i">
+        {{ section.settings.background_image | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      </figure>
+    {% endif %}
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var el = document.querySelector('.collections-i .collections-splide-i');
+
+    if (!el || typeof Splide === 'undefined') return;
+
+    new Splide(el, {
+      type: 'loop',
+      perPage: 1,
+      perMove: 1,
+      gap: '50vw',
+      arrows: true,
+      pagination: true,
+      drag: true,
+      speed: 700
+    }).mount();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collections I",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Products"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Seasonal Collections"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Products limit",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "text",
+      "id": "add_label",
+      "label": "Add button label",
+      "default": "Add To Bag"
+    },
+    {
+      "type": "text",
+      "id": "detail_label",
+      "label": "Detail button label",
+      "default": "See Detail"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Main button label",
+      "default": "See More Collections"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Main button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections I"
+    }
+  ] 
+}
+{% endschema %}

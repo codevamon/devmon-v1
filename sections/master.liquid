@@ -1,0 +1,139 @@
+<div class="master-i">
+  <div class="container-i">
+    <div class="_full _1 d-none d-xl-block">
+      <div class="_header">
+        <h3 class="_title">Desktop</h3>
+      </div>
+
+      <!-- HEADINGS -->
+      <div class="_body _1">
+        <h1 class="he-xxl">Heading XXL</h1>
+        <h2 class="he-xl">Heading XL</h2>
+        <h3 class="he-l">Heading L</h3>
+        <h4 class="he-m">Heading M</h4>
+        <h5 class="he-s">Heading S</h5>
+        <h6 class="he-xs">Heading XS</h6>
+      </div>
+      <hr>
+
+      <!-- BODY TEXT -->
+      <div class="_body _2">
+        <p class="bo-xl">Body XL</p>
+        <p class="bo-l">Body L</p>
+        <p class="bo-m">Body M</p>
+        <p class="bo-s">Body S</p>
+        <p class="bo-xs">Body XS</p>
+        <p class="bo-xxs">Body XXS</p>
+      </div>
+
+      <!-- BODY TEXT -->
+      <div class="_body _2">
+        <p class="sp-i">Special 1</p>
+      </div>
+
+
+      <!-- BUTTONS -->
+      <div class="_body _4">
+
+        <button class="btn-i">
+          <span class="inbtn">
+            <span class="text-btn">Button I</span>
+            <span class="icon-btn"></span>
+          </span>
+        </button>
+
+        <button class="btn-ii">
+          <span class="inbtn">
+            <span class="icon-btn"></span>
+            <span class="text-btn">Button II</span>
+          </span>
+        </button>
+
+        <button class="btn-iii">
+          <span class="inbtn">
+            <span class="icon-btn"></span>
+            <span class="text-btn">Button III</span>
+          </span>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:names.page",
+  "class": "section-wrapper",
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "_divider"
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "content_direction",
+      "label": "t:settings.direction",
+      "options": [
+        {
+          "value": "column",
+          "label": "t:options.vertical"
+        }
+      ],
+      "default": "column",
+      "visible_if": "{{ section.settings.gap < 0 }}"
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "t:settings.gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,176 @@
+<section class="getintouch-i">
+  <div class="container-i">
+    <div class="in-getintouch-i">
+
+      <div class="flex gap-i">
+
+        <div class="item-getintouch-i item-getintouch-i-1 w-12 w-md-6">
+          <div class="in-item-getintouch-i">
+
+            {% if section.settings.eyebrow != blank %}
+              <div class="bo-xs fw-medium">
+                <p>{{ section.settings.eyebrow }}</p>
+              </div>
+            {% endif %}
+
+            {% if section.settings.heading != blank %}
+              <div class="he-l fw-regular">
+                <h2>{{ section.settings.heading }}</h2>
+              </div>
+            {% endif %}
+
+            {% if section.settings.text != blank %}
+              <div class="bo-m fw-regular">
+                <p>{{ section.settings.text }}</p>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+
+        <div class="item-getintouch-i item-getintouch-i-2 w-12 w-md-6">
+          <div class="in-item-getintouch-i">
+
+            {% form 'contact', class: 'form-getintouch-i' %}
+
+              {% if form.posted_successfully? %}
+                <div class="success-getintouch-i">
+                  <div class="bo-xs">
+                    <p>{{ section.settings.success_message }}</p>
+                  </div>
+                </div>
+              {% endif %}
+
+              <div class="field-wagon field-getintouch-i">
+                <label class="bo-xs" for="getintouch-name-{{ section.id }}">
+                  <span>Email</span>
+                </label>
+                <input
+                  id="getintouch-name-{{ section.id }}"
+                  type="text"
+                  name="contact[name]"
+                  placeholder="{{ section.settings.name_placeholder }}"
+                >
+              </div>
+
+              <div class="field-wagon">
+                <label class="bo-xs" for="getintouch-phone-{{ section.id }}">
+                  <span>Phone Number</span>
+                </label>
+                <input
+                  id="getintouch-phone-{{ section.id }}"
+                  type="tel"
+                  name="contact[phone]"
+                  placeholder="{{ section.settings.phone_placeholder }}"
+                >
+              </div>
+
+              <div class="field-wagon">
+                <label class="bo-xs" for="getintouch-email-{{ section.id }}">
+                  <span>Email</span>
+                </label>
+                <input
+                  id="getintouch-email-{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  placeholder="{{ section.settings.email_placeholder }}"
+                  required
+                >
+              </div>
+
+              <div class="field-wagon">
+                <label class="bo-xs" for="getintouch-message-{{ section.id }}">
+                  <span>Message</span>
+                </label>
+                <textarea
+                  id="getintouch-message-{{ section.id }}"
+                  name="contact[body]"
+                  placeholder="{{ section.settings.message_placeholder }}"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="actions-getintouch-i">
+                <button class="btn-i btn-tumeric withicon" type="submit">
+                  <span class="btn-text">{{ section.settings.button_label }}</span>
+                  <span class="btn-icon"><i class="bi bi-chevron-right"></i></span>
+                </button>
+              </div>
+
+            {% endform %}
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Get In Touch I",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Contact"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get in Touch with us!"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Whether you have questions about our products, our mission, or just want to say hi, please fill out our Contact form."
+    },
+    {
+      "type": "text",
+      "id": "name_placeholder",
+      "label": "Name placeholder",
+      "default": "Anna"
+    },
+    {
+      "type": "text",
+      "id": "phone_placeholder",
+      "label": "Phone placeholder",
+      "default": "+1 310 285 2913"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Anna@gmail.com"
+    },
+    {
+      "type": "textarea",
+      "id": "message_placeholder",
+      "label": "Message placeholder",
+      "default": "Hi! Need custom chocolate boxes for an event. Is this possible?"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Send Message"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thank you! Your message has been sent successfully."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Get In Touch I"
+    }
+  ]
+}
+{% endschema %}

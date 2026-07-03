@@ -1,0 +1,209 @@
+<section class="about-iii" id="AboutIII-{{ section.id }}">
+  <div class="in-about-iii container-i">
+
+    {% if section.blocks.size > 0 %}
+      <div class="timeline-about-iii">
+        <div class="track-about-iii">
+          <div class="indicator-about-iii" aria-hidden="true">
+            <span class="bo-xs fw-regular"></span>
+          </div>
+
+          {% for block in section.blocks %}
+            <button
+              class="item-timeline-about-iii{% if forloop.first %} is-active{% endif %}"
+              type="button"
+              data-about-iii-index="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              <span class="line-before"></span>
+              <span class="year bo-xs fw-regular">{{ block.settings.year }}</span>
+              <span class="line-after"></span>
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="splide about-iii-splide" aria-label="About timeline">
+        <div class="splide__track">
+          <ul class="splide__list">
+
+            {% for block in section.blocks %}
+              <li class="splide__slide">
+                <article class="item-about-iii{% if forloop.first %} is-active{% endif %}">
+                  {% if block.settings.title != blank %}
+                    <div class="bo-s fw-bold">
+                      <h3>{{ block.settings.title }}</h3>
+                    </div>
+                  {% endif %}
+
+                  {% if block.settings.text != blank %}
+                    <div class="bo-xs fw-regular">
+                      <p>{{ block.settings.text }}</p>
+                    </div>
+                  {% endif %}
+                </article>
+              </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var section = document.querySelector('#AboutIII-{{ section.id }}');
+    if (!section || typeof Splide === 'undefined') return;
+
+    var splideEl = section.querySelector('.about-iii-splide');
+    var track = section.querySelector('.track-about-iii');
+    var indicator = section.querySelector('.indicator-about-iii');
+    var indicatorText = indicator ? indicator.querySelector('span') : null;
+    var timelineItems = Array.from(section.querySelectorAll('.item-timeline-about-iii'));
+    var contentItems = Array.from(section.querySelectorAll('.item-about-iii'));
+
+    if (!splideEl || !track || !indicator || !timelineItems.length) return;
+
+    var splide = new Splide(splideEl, {
+      type: 'slide',
+      perPage: 4,
+      perMove: 1,
+      gap: '3vw',
+      arrows: false,
+      pagination: false,
+      drag: true,
+      speed: 650,
+      breakpoints: {
+        1200: {
+          perPage: 3
+        },
+        991: {
+          perPage: 2,
+          gap: '5vw'
+        },
+        768: {
+          perPage: 1,
+          gap: '6vw'
+        }
+      }
+    });
+
+    function moveIndicator(index) {
+      var item = timelineItems[index];
+      if (!item) return;
+
+      var trackRect = track.getBoundingClientRect();
+      var itemRect = item.getBoundingClientRect();
+      var year = item.querySelector('.year');
+
+      var itemCenter = itemRect.left - trackRect.left + (itemRect.width / 2);
+      var indicatorWidth = indicator.offsetWidth;
+      var left = itemCenter - (indicatorWidth / 2);
+
+      indicator.style.transform = 'translateX(' + left + 'px)';
+
+      if (indicatorText && year) {
+        indicatorText.textContent = year.textContent.trim();
+      }
+
+      timelineItems.forEach(function (el, i) {
+        el.classList.toggle('is-active', i === index);
+      });
+
+      contentItems.forEach(function (el, i) {
+        el.classList.toggle('is-active', i === index);
+      });
+    }
+
+    timelineItems.forEach(function (item, index) {
+      item.addEventListener('click', function () {
+        splide.go(index);
+      });
+    });
+
+    splide.on('mounted move moved resized updated', function () {
+      moveIndicator(splide.index);
+    });
+
+    splide.mount();
+
+    window.addEventListener('resize', function () {
+      moveIndicator(splide.index);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "About III",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "timeline_item",
+      "name": "Timeline item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2016"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Where It All Began"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Uzma was born and raised in the United States, growing up in a single-parent household in Chicago, Illinois. As a first-generation Pakistani American, life was not easy for her family. Despite the challenges, Uzma found solace in her creative side and began channeling her pain into art."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About III",
+      "blocks": [
+        {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2016",
+            "title": "Where It All Began",
+            "text": "Uzma was born and raised in the United States, growing up in a single-parent household in Chicago, Illinois. As a first-generation Pakistani American, life was not easy for her family. Despite the challenges, Uzma found solace in her creative side and began channeling her pain into art."
+          }
+        },
+        {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2017",
+            "title": "Discovering Her Calling",
+            "text": "At the age of 18, Uzma discovered her talent for cooking and quickly caught the attention of the executive chef in the kitchen where she worked. She skipped college and moved to the Rocky Mountains of Colorado to attend culinary school."
+          }
+        },
+        {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2018",
+            "title": "Mastering The Art",
+            "text": "After completing her culinary education, Uzma returned to Chicago to attend the French Pastry School. She studied under world-renowned chefs and learned the art of French pastry."
+          }
+        },
+        {
+          "type": "timeline_item",
+          "settings": {
+            "year": "2019",
+            "title": "Sharing Her Passion",
+            "text": "Today, Uzma is a celebrated chocolatier and culinary expert who is thrilled to share her passion for chocolate and her unique cultural perspective with the world."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

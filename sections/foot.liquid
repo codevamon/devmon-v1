@@ -1,0 +1,334 @@
+<footer class="foot">
+  <aside class="detail">
+    <img class="d-none d-md-block" src="https://cdn.shopify.com/s/files/1/0658/2445/6946/files/detail-footer1.svg?v=1781730544" title="Detail footer" alt="Detail footer">
+    <img class="d-md-none" src="https://cdn.shopify.com/s/files/1/0658/2445/6946/files/superdetail-footer-responsive.svg?v=1781905385" title="Detail footer" alt="Detail footer">
+  </aside>
+  <div class="content">
+    <div class="container-i">
+      <div class="in-foot">
+
+        <div class="body-foot">
+          <div class="flex-i gap-i">
+
+            <div class="item-foot item-foot-brand w-12 w-md-3">
+              <div class="in-item-foot">
+                {% if section.settings.logo != blank %}
+                  <figure class="logo-foot">
+                    {{ section.settings.logo | image_url: width: 420 | image_tag: loading: 'lazy' }}
+                  </figure>
+                {% endif %}
+
+                {% if section.settings.brand_text != blank %}
+                  <div class="bo-xs">
+                    <p>{{ section.settings.brand_text }}</p>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="item-foot item-foot-menus w-12 w-md-5">
+              <div class="flex-i gap-i space-between">
+                <div class="w-12 w-md-5 _1">
+                  <div class="in-item-foot">
+                    {% if section.settings.contact_title != blank %}
+                      <div class="bo-xs fw-bold">
+                        <p>{{ section.settings.contact_title }}</p>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.email != blank %}
+                      <div class="bo-xs">
+                        <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.shop_hours_label != blank %}
+                      <div class="bo-xs">
+                        <a href="{{ section.settings.shop_hours_url }}">{{ section.settings.shop_hours_label }}</a>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.address != blank %}
+                      <div class="bo-xs">
+                        <p>{{ section.settings.address }}</p>
+                      </div>
+                    {% endif %}
+
+                    <div class="social-foot">
+                      {% if section.settings.facebook_url != blank %}
+                        <a href="{{ section.settings.facebook_url }}" aria-label="Facebook" class="icon-i" target="_blank">
+                          <i class="bi bi-facebook"></i>
+                        </a>
+                      {% endif %}
+
+                      {% if section.settings.instagram_url != blank %}
+                        <a href="{{ section.settings.instagram_url }}" aria-label="Instagram" class="icon-i" target="_blank">
+                          <i class="bi bi-instagram"></i>
+                        </a>
+                      {% endif %}
+
+                      {% if section.settings.youtube_url != blank %}
+                        <a href="{{ section.settings.youtube_url }}" aria-label="YouTube" class="icon-i" target="_blank">
+                          <i class="bi bi-youtube"></i>
+                        </a>
+                      {% endif %}
+                    </div>
+                    <div class="d-none d-md-flex">
+                      {% if section.settings.footer_menu != blank %}
+                        <nav class="links-foot" aria-label="{{ section.settings.footer_menu.title }}">
+                          {% for link in section.settings.footer_menu.links %}
+                            <div class="bo-xs">
+                              <a href="{{ link.url }}">{{ link.title }}</a>
+                            </div>
+                          {% endfor %}
+                        </nav>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+                <div class="w-6 w-md-5 _2">
+                  <div class="in-item-foot">
+                    {% if section.settings.products_title != blank %}
+                      <div class="bo-xs fw-bold">
+                        <p>{{ section.settings.products_title }}</p>
+                      </div>
+                    {% endif %}
+
+                    {% if section.settings.products_menu != blank %}
+                      <nav class="links-foot" aria-label="{{ section.settings.products_menu.title }}">
+                        {% for link in section.settings.products_menu.links %}
+                          <div class="bo-xs">
+                            <a href="{{ link.url }}">{{ link.title }}</a>
+                          </div>
+                        {% endfor %}
+                      </nav>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="w-6 d-md-none _3">
+                    {% if section.settings.footer_menu != blank %}
+                      <nav class="links-foot" aria-label="{{ section.settings.footer_menu.title }}">
+                        {% for link in section.settings.footer_menu.links %}
+                          <div class="bo-xs">
+                            <a href="{{ link.url }}">{{ link.title }}</a>
+                          </div>
+                        {% endfor %}
+                      </nav>
+                    {% endif %}
+                </div>
+
+              </div>
+            </div>
+
+
+            <div class="item-foot item-foot-newsletter w-12 w-md-4">
+              <div class="in-item-foot">
+                {% if section.settings.newsletter_heading != blank %}
+                  <div class="he-s uppercase">
+                    <h2>{{ section.settings.newsletter_heading }}</h2>
+                  </div>
+                {% endif %}
+
+                {% form 'customer', class: 'form-foot' %}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+
+                  <div class="field-wagon">
+                    <label for="newsletter-email-{{ section.id }}">
+                      <span>Email</span>
+                    </label>
+
+                    <input
+                      id="newsletter-email-{{ section.id }}"
+                      type="email"
+                      name="contact[email]"
+                      placeholder="{{ section.settings.email_placeholder }}"
+                      required
+                    >
+                  </div>
+
+                  {% if section.settings.newsletter_note != blank %}
+                    <div class="bo-xs">
+                      <p>{{ section.settings.newsletter_note }}</p>
+                    </div>
+                  {% endif %}
+
+                  <div class="actions-foot">
+                    <button class="btn-i btn-outline btn-chocolat" type="submit">
+                      <span>{{ section.settings.button_label }}</span>
+                    </button>
+                  </div>
+                {% endform %}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="line-foot">
+          <figure class="d-none d-md-block">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1360" height="24" viewBox="0 0 1360 24" fill="none" preserveAspectRatio="none">
+                <path d="M1360 10.78V12.98H691.67C688.6 12.98 685.59 12.52 683.4 14.67C683.39 14.68 683.41 14.7 683.4 14.71C680.72 17.41 680 19.65 680 23.77C680 19.84 678.93 17.73 676.44 15.07C674.21 12.69 671.55 12.99 668.29 12.99H0V10.79H668.29C671.56 10.79 674.21 10.96 676.44 8.56C678.91 5.9 680 3.92 680 0C680 3.92 680.93 5.89 683.4 8.56C685.63 10.96 688.43 10.79 691.71 10.79H1360V10.78Z" fill="#372223"/>
+              </svg>
+          </figure>
+          <figure class="d-md-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="344" height="24" viewBox="0 0 344 24" fill="none" preserveAspectRatio="none">
+              <path d="M343.5 10.78V12.98L187.17 12.98C184.1 12.98 181.09 12.52 178.9 14.67C178.89 14.68 178.91 14.7 178.9 14.71C176.22 17.41 175.5 19.65 175.5 23.77C175.5 19.84 174.43 17.73 171.94 15.07C169.71 12.69 167.05 12.99 163.79 12.99L0 12.98V10.78L163.79 10.79C167.06 10.79 169.71 10.96 171.94 8.56C174.41 5.9 175.5 3.92 175.5 0C175.5 3.92 176.43 5.89 178.9 8.56C181.13 10.96 183.93 10.79 187.21 10.79L343.5 10.79V10.78Z" fill="#372223"/>
+            </svg>
+          </figure>
+        </div>
+
+        <div class="bottom-foot">
+          <div class="flex-i gap-i space-between">
+
+            <div class="item-bottom-foot w-12 w-md-6">
+              <div class="bo-xs">
+                <p>© {{ 'now' | date: '%Y' }} {{ section.settings.copyright }}</p>
+              </div>
+            </div>
+
+            <div class="item-bottom-foot w-12 w-md-6">
+              {% if section.settings.legal_menu != blank %}
+                <nav class="legal-foot" aria-label="{{ section.settings.legal_menu.title }}">
+                  {% for link in section.settings.legal_menu.links %}
+                    <div class="bo-xs">
+                      <a href="{{ link.url }}">{{ link.title }}</a>
+                    </div>
+                  {% endfor %}
+                </nav>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <figure class="bg-detail">
+    <img src="https://cdn.shopify.com/s/files/1/0658/2445/6946/files/superdetail-footer.svg?v=1781731271">
+  </figure>
+</footer>
+{% schema %}
+{
+  "name": "Foot",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_text",
+      "label": "Brand text",
+      "default": "We create exceptional products with quality ingredients. We're dedicated to quality, sustainability, and positive impact."
+    },
+    {
+      "type": "text",
+      "id": "contact_title",
+      "label": "Contact title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@chocolat-uzma.com"
+    },
+    {
+      "type": "text",
+      "id": "shop_hours_label",
+      "label": "Shop hours label",
+      "default": "View Shop Hours"
+    },
+    {
+      "type": "url",
+      "id": "shop_hours_url",
+      "label": "Shop hours URL"
+    },
+    {
+      "type": "textarea",
+      "id": "address",
+      "label": "Address",
+      "default": "917 W. 18th Street. Suite 101"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_menu",
+      "label": "Footer menu"
+    },
+    {
+      "type": "text",
+      "id": "products_title",
+      "label": "Products title",
+      "default": "Products"
+    },
+    {
+      "type": "link_list",
+      "id": "products_menu",
+      "label": "Products menu"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Join our newsletter to stay up to date on features and releases."
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Anna@gmail.com"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_note",
+      "label": "Newsletter note",
+      "default": "By subscribing you agree with our Privacy Policy and provide consent to receive updates from our company."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright",
+      "default": "© 2025 Chocolat Uzma. All rights reserved."
+    },
+    {
+      "type": "link_list",
+      "id": "legal_menu",
+      "label": "Legal menu"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Foot"
+    }
+  ]
+}
+{% endschema %}

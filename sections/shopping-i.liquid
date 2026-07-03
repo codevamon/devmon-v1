@@ -1,0 +1,195 @@
+<section class="shopping-i">
+  <div class="container-i">
+    <div class="in-shopping-i">
+
+      {% if section.settings.heading != blank %}
+        <div class="head-shopping-i">
+          <div class="he-l">
+            {% if collection.handle == 'all' %}
+              <h1>{{ section.settings.all_heading }}</h1>
+            {% else %}
+              <h1>{{ collection.title }}</h1>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="flex-i">
+
+        <aside class="item-shopping-i item-shopping-i-1 w-12 w-md-3">
+          <div class="sidebar-shopping-i">
+
+            {% if section.settings.menu != blank %}
+              <nav class="menu-shopping-i" aria-label="{{ section.settings.menu.title }}">
+                {% for link in section.settings.menu.links %}
+                  <div class="link-ii{% if link.active %} is-active{% endif %}">
+                    <a href="{{ link.url }}">
+                      {{ link.title }}
+                      {% if link.active %}
+                        <span>✦</span>
+                      {% endif %}
+                    </a>
+                  </div>
+                {% endfor %}
+              </nav>
+            {% endif %}
+
+            <div class="filter-shopping-i">
+              <div class="bo-xs">
+                <p>{{ section.settings.price_label }}</p>
+              </div>
+
+              <input
+                type="range"
+                min="0"
+                max="{{ section.settings.max_price }}"
+                value="{{ section.settings.default_price }}"
+                class="range-shopping-i"
+              >
+
+              <div class="bo-xs">
+                <p>{{ section.settings.price_prefix }}{{ section.settings.default_price }}</p>
+              </div>
+            </div>
+
+            <div class="sort-shopping-i">
+              <div class="bo-xs">
+                <p>{{ section.settings.sort_label }}</p>
+              </div>
+
+              <select name="sort_by" class="select-shopping-i">
+                <option value="manual">Featured</option>
+                <option value="best-selling">Best selling</option>
+                <option value="title-ascending">Alphabetically, A-Z</option>
+                <option value="title-descending">Alphabetically, Z-A</option>
+                <option value="price-ascending">Price, low to high</option>
+                <option value="price-descending">Price, high to low</option>
+              </select>
+            </div>
+
+          </div>
+        </aside>
+
+        <div class="item-shopping-i item-shopping-i-2 w-12 w-md-9">
+          {% assign selected_collection = section.settings.collection %}
+
+          {% if selected_collection != blank and selected_collection.products.size > 0 %}
+            <div class="flex-i gap-i grid-shopping-i">
+
+              {% for product in selected_collection.products limit: section.settings.products_limit %}
+                {% assign main_picture = product.metafields.custom.main_picture.value %}
+
+                <article class="card-shopping-i w-12 w-md-4{% if main_picture != blank %} darker{% endif %}">
+                  <a href="{{ product.url }}">
+
+                    <div class="in-card-shopping-i">
+
+                      {% if main_picture != blank %}
+                        <figure class="media-shopping-i">
+                          {{ main_picture | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                        </figure>
+                      {% elsif product.featured_image != blank %}
+                        <figure class="media-shopping-i">
+                          {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+                        </figure>
+                      {% endif %}
+
+                      <div class="data-shopping-i">
+                        <div class="bo-xs fw-bold">
+                          <p>{{ product.title }}</p>
+                        </div>
+
+                        <div class="bo-xs fw-regular">
+                          <p>{{ product.price | money }}</p>
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </a>
+                </article>
+              {% endfor %}
+
+            </div>
+          {% endif %}
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Shopping I",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Signature Collections"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Category menu"
+    },
+    {
+      "type": "range",
+      "id": "products_limit",
+      "label": "Products limit",
+      "min": 6,
+      "max": 48,
+      "step": 3,
+      "default": 12
+    },
+    {
+      "type": "text",
+      "id": "price_label",
+      "label": "Price label",
+      "default": "Highest Price"
+    },
+    {
+      "type": "text",
+      "id": "price_prefix",
+      "label": "Price prefix",
+      "default": "$"
+    },
+    {
+      "type": "range",
+      "id": "max_price",
+      "label": "Max price",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "default_price",
+      "label": "Default price",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "default": 80
+    },
+    {
+      "type": "text",
+      "id": "sort_label",
+      "label": "Sort label",
+      "default": "Sort by"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shopping I"
+    }
+  ]
+}
+{% endschema %}

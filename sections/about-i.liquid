@@ -1,0 +1,88 @@
+<section class="about-i">
+  <div class="in-about-i">
+    <div class="container-i">
+      <div class="flex-i gap-i align-center space-between">
+
+        <div class="item-about-i item-about-i-1 w-12 w-lg-7">
+          <div class="sidecontainer-i">
+
+            {% if section.settings.eyebrow != blank %}
+              <div class="bo-xs fw-medium">
+                <p>{{ section.settings.eyebrow }}</p>
+              </div>
+            {% endif %}
+
+            {% if section.settings.heading != blank %}
+              <div class="he-xl fw-medium uppercase">
+                <h2>{{ section.settings.heading }}</h2>
+              </div>
+            {% endif %}
+
+          </div>
+        </div>
+
+        <div class="item-about-i item-about-i-2 w-12 w-lg-3">
+          {% if section.settings.image != blank %}
+            <figure class="media-about-i">
+              {{ section.settings.image | image_url: width: 900 | image_tag: loading: 'lazy' }}
+            </figure>
+          {% endif %}
+
+          {% if section.settings.text != blank %}
+            <div class="bo-s fw-regular">
+              <p>{{ section.settings.text }}</p>
+            </div>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+    {% if section.settings.ornament != blank %}
+      <figure class="ornament-about-i">
+        {{ section.settings.ornament | image_url: width: 2400 | image_tag: loading: 'lazy' }}
+      </figure>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About I",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Our Mission is simple"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "CREATE EXCEPTIONAL PRODUCTS WITH QUALITY INGREDIENTS."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right image"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Right text",
+      "default": "We're dedicated to quality, sustainability, and positive impact."
+    },
+    {
+      "type": "image_picker",
+      "id": "ornament",
+      "label": "Bottom ornament"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About I"
+    }
+  ]
+}
+{% endschema %}

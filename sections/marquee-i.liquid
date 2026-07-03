@@ -1,0 +1,103 @@
+<section class="marquee-i">
+  <div class="in-marquee-i">
+
+    {% if section.blocks.size > 0 %}
+      <div class="splide marquee-splide-i d-none d-md-block" aria-label="Logo marquee">
+        <div class="splide__track">
+          <ul class="splide__list">
+
+            {% for block in section.blocks %}
+              <li class="splide__slide" {{ block.shopify_attributes }}>
+                <div class="item-marquee-i">
+                  {% if block.settings.logo != blank %}
+                    <figure>
+                      {{ block.settings.logo | image_url: width: 500 | image_tag: loading: 'lazy' }}
+                    </figure>
+                  {% endif %}
+                </div>
+              </li>
+            {% endfor %}
+
+          </ul>
+        </div>
+      </div>
+      <div class="d-md-none">
+        <div class="brands">
+            {% for block in section.blocks %}
+              <div class="brand-i" {{ block.shopify_attributes }}>
+                {% if block.settings.logo != blank %}
+                  <figure>
+                    {{ block.settings.logo | image_url: width: 500 | image_tag: loading: 'lazy' }}
+                  </figure>
+                {% endif %}
+              </div>
+            {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var el = document.querySelector('.marquee-i .marquee-splide-i');
+
+    if (!el || typeof Splide === 'undefined') return;
+
+    new Splide(el, {
+      type: 'loop',
+      perPage: 5,
+      perMove: 1,
+      gap: '5vw',
+      arrows: false,
+      pagination: false,
+      drag: true,
+      snap: true,
+      autoplay: true,
+      interval: 2500,
+      speed: 900,
+      padding: {left: "3vw", right: "3vw"},
+      pauseOnHover: false,
+      pauseOnFocus: false,
+      rewind: false,
+      breakpoints: {
+        991: {
+          perPage: 2,
+          gap: '6vw',
+          focus: 'center'
+        },
+        575: {
+          perPage: 1,
+          gap: '8vw',
+          padding: {left: "5vw", right: "5vw"},
+        }
+      }
+    }).mount();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Marquee I",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee I"
+    }
+  ]
+}
+{% endschema %}

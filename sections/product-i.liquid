@@ -1,0 +1,658 @@
+{% liquid
+  assign current_product = product
+  assign current_variant = current_product.selected_or_first_available_variant
+%}
+
+<section
+  class="product-i"
+  id="ProductI-{{ section.id }}"
+  data-product-grid-content
+>
+  <div class="in-product-i container-i">
+
+    <div class="flex-i justify-center">
+      <div class="item-product-i w-12">
+        
+        <div class="breadcrumb-product-i bo-xs">
+          <p>
+            <a href="{{ routes.root_url }}">Home</a>
+              <span class="icon-i">
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="8" viewBox="0 0 5 8" fill="none">
+                  <path d="M0.942666 7.60933L4.74733 3.80467L0.942666 0L0 0.942666L2.862 3.80467L0 6.66667L0.942666 7.60933Z" fill="#372223"/>
+                </svg>
+              </span>
+            {% if current_product.collections.first != blank %}
+              <a href="{{ current_product.collections.first.url }}">{{ current_product.collections.first.title }}</a>
+              <span class="icon-i">
+                <svg xmlns="http://www.w3.org/2000/svg" width="5" height="8" viewBox="0 0 5 8" fill="none">
+                  <path d="M0.942666 7.60933L4.74733 3.80467L0.942666 0L0 0.942666L2.862 3.80467L0 6.66667L0.942666 7.60933Z" fill="#372223"/>
+                </svg>
+              </span>
+            {% endif %}
+            <span class="fw-bold">{{ current_product.title }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="item-product-i item-product-i-1 w-12 w-lg-6">
+        <div class="gallery-product-i">
+
+          <div class="splide product-i-thumbs" aria-label="{{ current_product.title | escape }} thumbnails">
+            <div class="splide__track">
+              <ul class="splide__list">
+                {% for media in current_product.media %}
+                  <li class="splide__slide">
+                    <figure class="thumb-product-i">
+                      {% if media.preview_image != blank %}
+                        {{ media.preview_image | image_url: width: 220 | image_tag: loading: 'lazy' }}
+                      {% endif %}
+                    </figure>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+          <div class="splide product-i-main" aria-label="{{ current_product.title | escape }} gallery">
+            <div class="splide__track">
+              <ul class="splide__list">
+                {% for media in current_product.media %}
+                  <li class="splide__slide">
+                    <figure class="media-product-i">
+                      {% case media.media_type %}
+                        {% when 'image' %}
+                          {{ media | image_url: width: 1600 | image_tag: loading: 'lazy' }}
+                        {% when 'video' %}
+                          {{ media | media_tag: image_size: '1600x', autoplay: false, loop: false, controls: true }}
+                        {% when 'external_video' %}
+                          {{ media | external_video_tag }}
+                        {% else %}
+                          {% if media.preview_image != blank %}
+                            {{ media.preview_image | image_url: width: 1600 | image_tag: loading: 'lazy' }}
+                          {% endif %}
+                      {% endcase %}
+                    </figure>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item-product-i item-product-i-2 w-12 w-lg-6">
+        <div class="data-product-i">
+
+
+          <div class="head-product-i">
+            <div class="he-xxl uppercase fw-medium">
+              <h1>{{ current_product.title }}</h1>
+            </div>
+
+            <div class="price-product-i bo-l fw-medium">
+              {% render 'price', product_resource: current_product, show_sale_price_first: true %}
+              <div class="bo-xxs fw-regular">
+                <p><a haref="#">Shipping</a> calculated at checkout.</p>
+              </div>
+            </div>
+          </div>
+
+          {% if current_product.description != blank %}
+            <div class="description-product-i bo-s fw-regular">
+              {{ current_product.description }}
+            </div>
+          {% endif %}
+
+          <div class="options-product-i">
+            {% content_for 'block',
+              type: 'variant-picker',
+              id: 'variant-picker',
+              closest.product: current_product
+            %}
+          </div>
+
+          <div class="actions-product-i">
+            {% content_for 'block',
+              type: 'buy-buttons',
+              id: 'buy-buttons',
+              closest.product: current_product
+            %}
+          </div>
+          <figure class="detail">
+            <img src="https://cdn.shopify.com/s/files/1/0658/2445/6946/files/mimidetail_1.svg?v=1782926787" alt="Detail pdp" title="Detail pdp">
+          </figure>
+
+          <div class="accordion accordion-product-i" id="AccordionProductI-{{ section.id }}">
+            {% if section.settings.accordion_1_title != blank %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="AccordionProductIHeadingOne-{{ section.id }}">
+                  <button class="accordion-button collapsed bo-s fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#AccordionProductICollapseOne-{{ section.id }}" aria-expanded="false" aria-controls="AccordionProductICollapseOne-{{ section.id }}">
+                    <span class="btn-text">{{ section.settings.accordion_1_title }}</span>
+                    <span class="btn-icon">
+                      <span class="line _1"></span>
+                      <span class="line _2"></span>
+                    </span>
+
+                  </button>
+                </h2>
+                <div id="AccordionProductICollapseOne-{{ section.id }}" class="accordion-collapse collapse" aria-labelledby="AccordionProductIHeadingOne-{{ section.id }}" data-bs-parent="#AccordionProductI-{{ section.id }}">
+                  <div class="accordion-body bo-xs">
+                    <div class="in-accordion">
+                    {{ section.settings.accordion_1_content }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.accordion_2_title != blank %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="AccordionProductIHeadingTwo-{{ section.id }}">
+                  <button class="accordion-button collapsed bo-s fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#AccordionProductICollapseTwo-{{ section.id }}" aria-expanded="false" aria-controls="AccordionProductICollapseTwo-{{ section.id }}">
+                    <span class="btn-text">{{ section.settings.accordion_2_title }}</span>
+                    <span class="btn-icon">
+                      <span class="line _1"></span>
+                      <span class="line _2"></span>
+                    </span>
+                  </button>
+                </h2>
+                <div id="AccordionProductICollapseTwo-{{ section.id }}" class="accordion-collapse collapse" aria-labelledby="AccordionProductIHeadingTwo-{{ section.id }}" data-bs-parent="#AccordionProductI-{{ section.id }}">
+                  <div class="accordion-body bo-xs">
+                    <div class="in-accordion">
+                    {{ section.settings.accordion_2_content }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+
+            {% if section.settings.accordion_3_title != blank %}
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="AccordionProductIHeadingThree-{{ section.id }}">
+                  <button class="accordion-button collapsed bo-s fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#AccordionProductICollapseThree-{{ section.id }}" aria-expanded="false" aria-controls="AccordionProductICollapseThree-{{ section.id }}">
+                    <span class="btn-text">{{ section.settings.accordion_3_title }}</span>
+                    <span class="btn-icon">
+                      <span class="line _1"></span>
+                      <span class="line _2"></span>
+                    </span>
+                  </button>
+                </h2>
+                <div id="AccordionProductICollapseThree-{{ section.id }}" class="accordion-collapse collapse" aria-labelledby="AccordionProductIHeadingThree-{{ section.id }}" data-bs-parent="#AccordionProductI-{{ section.id }}">
+                  <div class="accordion-body bo-xs">
+                    <div class="in-accordion">
+                      {{ section.settings.accordion_3_content }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var section = document.querySelector('#ProductI-{{ section.id }}');
+    if (!section || typeof Splide === 'undefined') return;
+
+    var mainEl = section.querySelector('.product-i-main');
+    var thumbsEl = section.querySelector('.product-i-thumbs');
+
+    if (!mainEl || !thumbsEl) return;
+
+    var main = new Splide(mainEl, {
+      type: 'fade',
+      rewind: true,
+      arrows: false,
+      pagination: false,
+      drag: true,
+      speed: 600
+    });
+
+    var thumbs = new Splide(thumbsEl, {
+      direction: 'ttb',
+      height: '40vw',
+      fixedWidth: '100%',
+      fixedHeight: '14vw',
+      gap: '1vw',
+      rewind: true,
+      pagination: false,
+      arrows: false,
+      isNavigation: true,
+      drag: true,
+      breakpoints: {
+        992: {
+          direction: 'ltr',
+          height: 'auto',
+          fixedWidth: '18vw',
+          fixedHeight: '18vw'
+        },
+        768: {
+          fixedWidth: '22vw',
+          fixedHeight: '22vw',
+          gap: '3vw'
+        }
+      }
+    });
+
+    main.sync(thumbs);
+    main.mount();
+    thumbs.mount();
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const MAX_CHARS = 200;
+
+    function truncateHtmlElement(element, maxChars) {
+      const clone = element.cloneNode(true);
+      let count = 0;
+      let done = false;
+
+      function walk(node) {
+        if (done) {
+          node.remove();
+          return;
+        }
+
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.textContent;
+
+          if (count + text.length > maxChars) {
+            const remaining = maxChars - count;
+            node.textContent = text.slice(0, remaining).trimEnd() + '...';
+            done = true;
+          } else {
+            count += text.length;
+          }
+
+          return;
+        }
+
+        Array.from(node.childNodes).forEach(child => walk(child));
+      }
+
+      walk(clone);
+      return clone.innerHTML;
+    }
+
+    document.querySelectorAll('.description-product-i').forEach(description => {
+      const originalHTML = description.innerHTML.trim();
+      const fullText = description.textContent.trim();
+
+      if (fullText.length <= MAX_CHARS) return;
+
+      const collapsedHTML = truncateHtmlElement(description, MAX_CHARS);
+
+      function renderCollapsed() {
+        description.classList.remove('is-expanded');
+        description.innerHTML = `
+          <span class="description-product-i__content">
+            ${collapsedHTML}
+          </span>
+          <a href="#" class="description-product-i__toggle bo-s fw-medium">Read more</a>
+        `;
+
+        bindToggle();
+      }
+
+      function renderExpanded() {
+        description.classList.add('is-expanded');
+        description.innerHTML = `
+          <span class="description-product-i__content">
+            ${originalHTML}
+          </span>
+          <a href="#" class="description-product-i__toggle bo-s fw-medium">Read less</a>
+        `;
+
+        bindToggle();
+      }
+
+      function bindToggle() {
+        const toggle = description.querySelector('.description-product-i__toggle');
+
+        if (!toggle) return;
+
+        toggle.addEventListener('click', event => {
+          event.preventDefault();
+
+          if (description.classList.contains('is-expanded')) {
+            renderCollapsed();
+          } else {
+            renderExpanded();
+          }
+        });
+      }
+
+      renderCollapsed();
+    });
+  });
+</script>
+
+
+
+<script>
+(function () {
+  function syncProductIVariants() {
+    document.querySelectorAll('.product-i .variant-picker__form').forEach(function (form) {
+      const fieldsets = Array.from(form.querySelectorAll('fieldset.variant-option'));
+      const hasMultipleGroups = fieldsets.length > 1;
+
+      fieldsets.forEach(function (fieldset, index) {
+        const useRadio = hasMultipleGroups && index === 0;
+
+        fieldset.classList.toggle('product-i-option--radio', useRadio);
+        fieldset.classList.toggle('product-i-option--pill', !useRadio);
+
+        fieldset.querySelectorAll('.variant-option__button-label').forEach(function (label) {
+          const input = label.querySelector('input[type="radio"]');
+          if (!input) return;
+
+          const checked =
+            input.checked ||
+            input.hasAttribute('checked') ||
+            input.dataset.currentChecked === 'true';
+
+          label.classList.toggle('on', !useRadio && checked);
+        });
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    syncProductIVariants();
+
+    const root = document.querySelector('.product-i');
+    if (!root) return;
+
+    new MutationObserver(syncProductIVariants).observe(root, {
+      subtree: true,
+      childList: true,
+      attributes: true,
+      attributeFilter: [
+        'checked',
+        'data-current-checked',
+        'data-previous-checked',
+        'data-option-available',
+        'aria-disabled',
+        'class'
+      ]
+    });
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!event.target.closest('.product-i .variant-option__button-label')) return;
+    setTimeout(syncProductIVariants, 0);
+    setTimeout(syncProductIVariants, 100);
+  });
+})();
+</script>
+
+{% stylesheet %}
+  .product-i {
+    padding: 4vw 0;
+  }
+
+  .gallery-product-i {
+    display: flex;
+    gap: 1vw;
+  }
+
+
+  .product-i-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .media-product-i,
+  .thumb-product-i {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .media-product-i {
+    aspect-ratio: 1 / 1;
+  }
+
+  .thumb-product-i {
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+  }
+
+  .media-product-i img,
+  .media-product-i video,
+  .thumb-product-i img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .data-product-i {
+    color:var(--color-chocolat);
+  }
+
+  .breadcrumb-product-i p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5vw;
+    margin: 0;
+    align-items: center;
+    color:var(--color-chocolat);
+  }
+  .breadcrumb-product-i {
+    margin-bottom: var(--padding-title);
+  }
+
+  .breadcrumb-product-i a {
+    color:var(--color-chocolat);
+    text-decoration: none;
+  }
+  .breadcrumb-product-i a:hover {
+    color:var(--color-chocolat) !important;
+    text-decoration: none;
+  }
+
+  .head-product-i {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-title);
+    margin-bottom: calc(var(--padding-title) * 2);
+  }
+
+
+  .description-product-i p {
+    margin-bottom: 1vw;
+  }
+
+  .options-product-i {
+    margin-bottom: 2vw;
+  }
+
+  .actions-product-i {
+    margin-bottom: 2vw;
+  }
+
+  .actions-product-i .product-form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+  }
+
+  .accordion-product-i {
+    border:0;
+  }
+  .accordion-product-i .accordion-collapse .accordion-body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 5% 0;
+    border-top: 1px solid var(--color-chocolat);
+
+  }
+  .accordion-product-i .accordion-button span.btn-icon {
+    width: 2vw;
+    height: 2vw;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  section.product-i .item-product-i.item-product-i-1 {
+    position: relative;
+  }
+
+  section.product-i .item-product-i.item-product-i-1 .gallery-product-i {
+    position: sticky;
+    top: calc(var(--padding-section) * 2);
+  }
+  .accordion-product-i .accordion-button span.btn-icon span.line {
+		transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    height: 2px;
+    background: var(--color-chocolat);
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+  .accordion-product-i .accordion-button.collapsed span.btn-icon span.line._2{
+    transform: rotate(-90deg) scale(1);
+  }
+  .accordion-product-i .accordion-button span.btn-icon span.line._2 {
+    transform: rotate(0) scale(1);
+  }
+  .accordion-product-i .accordion-item:last-of-type>.accordion-header .accordion-button.collapsed,
+  .accordion-product-i .accordion-item:last-of-type {
+    border-radius: 0;
+  }
+  .accordion-product-i .accordion-item {
+    border: 0;
+    border-bottom: 1px solid var(--color-chocolat);
+    background: transparent;
+  }
+  .accordion-product-i .accordion-button::after{
+    display:none;
+  }
+  .data-product-i figure.detail {
+    width: 100%;
+  }
+
+  .data-product-i figure.detail img, .data-product-i figure.detail svg {
+    width: 100%;
+  }
+  .accordion-product-i .accordion-button {
+    width: 100%;
+    background: transparent;
+    color: inherit;
+    border: 0;
+    box-shadow: none;
+    padding: var(--padding-title) 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  .accordion-product-i .accordion-button *{
+    color:var(--color-chocolat);
+  }
+
+  .accordion-product-i .accordion-button span {
+    display: block;
+  }
+
+  .accordion-product-i .accordion-body {
+    padding: 0 0 1.2vw;
+  }
+
+  @media screen and (max-width: 992px) {
+    .gallery-product-i {
+      gap: 3vw;
+    }
+
+    .product-i-thumbs {
+      width: 100%;
+      flex: initial;
+    }
+
+    .data-product-i {
+      padding-left: 0;
+      position: static;
+      margin-top: 5vw;
+    }
+  }
+
+
+
+
+
+
+{% endstylesheet %}
+
+
+{% schema %}
+  {
+    "name": "Product I",
+    "settings": [
+      {
+        "type": "text",
+        "id": "accordion_1_title",
+        "label": "Accordion 1 title",
+        "default": "Product Details"
+      },
+      {
+        "type": "richtext",
+        "id": "accordion_1_content",
+        "label": "Accordion 1 content",
+        "default": "<p>Handcrafted with premium ingredients and careful attention to detail.</p>"
+      },
+      {
+        "type": "text",
+        "id": "accordion_2_title",
+        "label": "Accordion 2 title",
+        "default": "Care Instructions"
+      },
+      {
+        "type": "richtext",
+        "id": "accordion_2_content",
+        "label": "Accordion 2 content",
+        "default": "<p>Store in a cool, dry place. Follow product-specific care recommendations.</p>"
+      },
+      {
+        "type": "text",
+        "id": "accordion_3_title",
+        "label": "Accordion 3 title",
+        "default": "Shipping & Returns"
+      },
+      {
+        "type": "richtext",
+        "id": "accordion_3_content",
+        "label": "Accordion 3 content",
+        "default": "<p>Shipping and return policies can be customized from the theme editor.</p>"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "variant-picker"
+      },
+      {
+        "type": "buy-buttons"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Product I",
+        "blocks": [
+          {
+            "type": "variant-picker"
+          },
+          {
+            "type": "buy-buttons"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

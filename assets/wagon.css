@@ -1,0 +1,3236 @@
+/* GLOBAL */
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+/* END GLOBAL */
+
+/* HEADER */
+  body {
+    background: var(--color-blanco);
+  }
+  .header__row.header__row--top{
+    color:var(--color-chocolat);
+    position: relative;
+    background-color:transparent;
+    display:block;
+  }
+  .header__row .header__columns {
+    position: relative;
+    z-index: 1;
+    width:90%;
+    margin:0 auto;
+  }
+  body .menu-list {
+    --menu-vertical-gap: 0 !important;
+    --menu-horizontal-gap: 0 !important;!i;!;
+  }
+  .menu-list overflow-list.overflow-menu.color-scheme-1 {
+    grid-gap: 2vw;
+    display: flex;
+    margin: 0;
+  }
+
+  .cart-items-component .cart-drawer__content>.flex-i {
+    text-align: center;
+    justify-content: center;
+    grid-gap: 1vw;
+		font-family:'stevie-sans', sans-serif;
+  }
+  .cart-drawer--empty .cart-drawer__heading {
+    text-align: center;
+		font-family:'stevie-sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  dialog.cart-drawer__dialog.dialog-modal.dialog-drawer.cart-drawer--empty .cart-drawer__items .cart-items__wrapper p {
+    display: none;
+  }
+  .header__column .account-button {
+    display: none;
+  }
+  .header-logo>span img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .header__columns {
+    display: flex;
+    align-items: center;
+  }
+  .header__icon--summary .header-drawer-icon .lines {
+    width: 70%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__icon--summary .header-drawer-icon .lines span.line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top:50%;
+    background: var(--color-blanco);
+  }
+
+  .menu-drawer.color-scheme-1 {
+    background: var(--color-azul-oscuro);
+    color: var(--color-blanco);
+  }
+  .menu-drawer.color-scheme-1 a.btn-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu-drawer.color-scheme-1 ul.menu-drawer__menu.has-submenu a {
+    color: var(--color-blanco);
+    font-family: 'obviously-narrow';
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  ul.menu-drawer__featured-content-list.menu-drawer__animated-element.list-unstyled{
+    display:none;
+  }
+  header-component.header {
+    position: relative;
+  }
+  header-component.header figure.detail-i {
+    margin-bottom: 0;
+    position: absolute;
+    width: 100.15%;
+    z-index: -1;
+    height:100%;
+  }
+  header-component.header figure.detail-i:before {
+    content: '';
+    position: absolute;
+    bottom: 99%;
+    width: 100%;
+    height: 100%;
+    background: var(--color-tumeric);
+  }
+  header-component.header figure.detail-i img {
+    width: 100%;
+    height:100%;
+    object-fit:cover;
+    object-position: bottom;
+  }
+  aside.content-header nav.navbar-menu-i ul li.navbar-menu-i__item {
+    position: relative;
+  }
+
+  aside.content-header {
+    position: relative;
+    z-index: calc(var(--layer-overlay) + 2);
+  }
+  aside.content-header nav.navbar-menu-i ul li.navbar-menu-i__item {
+    position: relative;
+  }
+  /* Submenus normales */
+  aside.content-header nav.navbar-menu-i ul li.navbar-menu-i__item ul.navbar-menu-i__submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: calc(var(--layer-overlay) + 3);
+    min-width: 15vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    background: var(--color-ivory);
+    color: var(--color-chocolat);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5vw);
+    transition:
+      height 0.35s ease,
+      min-height 0.35s ease,
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  aside.content-header nav.navbar-menu-i ul li.navbar-menu-i__item:hover ul.navbar-menu-i__submenu {
+    height: auto;
+    min-height: max-content;
+    padding: 0.8vw 0;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .navbar-menu-i__submenu-link {
+    display: block;
+    width: 100%;
+    padding: 0.6vw 1vw;
+    color: currentColor;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  /* Evita que Shop muestre dropdown normal */
+  aside.content-header nav.navbar-menu-i ul li.navbar-menu-i__item.has-minishop:hover ul.navbar-menu-i__submenu {
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  /* Minishop de Shop — Bootstrap Collapse */
+  .minishop-menu {
+    position: relative;
+    width: 100%;
+    z-index: calc(var(--layer-overlay) + 1);
+    color: var(--color-chocolat);
+    overflow: hidden;
+  }
+
+  .minishop-menu.collapse:not(.show) {
+    display: none !important;
+  }
+
+  .minishop-menu.collapsing {
+    display: block !important;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.35s ease;
+  }
+
+  .minishop-menu.show {
+    display: block !important;
+  }
+
+  .in-minishop-menu {
+    padding: 1.2vw 0 1.8vw;
+  }
+
+  .item-minishop-menu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4vw;
+    text-align: center;
+  }
+
+  .item-minishop-menu figure {
+    width: 100%;
+    aspect-ratio: 1 / 1.3;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .item-minishop-menu figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .item-minishop-menu p {
+    margin: 0;
+  }
+
+  section.superhero-i .item-superhero.item-superhero-1 {
+    background: var(--color-chocolat);
+    color: var(--color-ivory);
+    position:relative;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i {
+    margin: 0 auto;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i .sidecontainer-i {
+    display: flex;
+    flex-direction: column;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i .sidecontainer-i .btn-i {
+    margin: 0 auto;
+  }
+
+  section.superhero-i .item-superhero.item-superhero-1 figure.ornament-superhero {
+    position: absolute;
+    width: 40%;
+    bottom: 0;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 figure.ornament-superhero.ornament-superhero-left {
+    left: 0;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 figure.ornament-superhero.ornament-superhero-right {
+    right: 0;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 figure.ornament-superhero svg {
+    width: 100%;
+    height: 100%;
+  }
+  section.superhero-i .item-superhero.item-superhero-2 figure.media-superhero-i {
+    height: 100%;
+    position: relative;
+    width: 100%;
+  }
+  section.superhero-i .item-superhero.item-superhero-2 figure.media-superhero-i img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    object-fit:cover;
+  }
+  .menu-drawer {
+    width: 100%;
+    max-width: 100vw;
+  }
+  .menu-drawer figure.bg-detail {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .menu-drawer figure.bg-detail img {
+    width: 100%;
+    height: 100%;
+  }
+  .menu-drawer>* {
+    position: relative;
+    z-index: 2;
+  }
+/* END HEADER */
+
+
+/* ============================================================
+   HEADER ENTRANCE — fade + slide desde arriba
+   Activado por la clase .header-ready en .header__row--top
+   ============================================================ */
+
+  .header__row--top .header__drawer > details > summary,
+  .header__row--top .header-logo,
+  .header__row--top .menu-list__list-item,
+  .header__row--top .account-button,
+  .header__row--top .header-actions__action {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  .header__row--top.header-ready .header__drawer > details > summary,
+  .header__row--top.header-ready .header-logo,
+  .header__row--top.header-ready .menu-list__list-item,
+  .header__row--top.header-ready .account-button,
+  .header__row--top.header-ready .header-actions__action,
+  
+  .wagon-page-ready .header__row--top .header__drawer > details > summary,
+  .wagon-page-ready .header__row--top .header-logo,
+  .wagon-page-ready .header__row--top .menu-list__list-item,
+  .wagon-page-ready .header__row--top .account-button,
+  .wagon-page-ready .header__row--top .header-actions__action{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger — burger → logo → menú items → account → cart */
+  .header__row--top.header-ready .header__drawer > details > summary { transition-delay: 0.05s; }
+  .header__row--top.header-ready .header-logo                        { transition-delay: 0.10s; }
+
+  .header__row--top.header-ready .menu-list__list-item:nth-child(1)  { transition-delay: 0.20s; }
+  .header__row--top.header-ready .menu-list__list-item:nth-child(2)  { transition-delay: 0.27s; }
+  .header__row--top.header-ready .menu-list__list-item:nth-child(3)  { transition-delay: 0.34s; }
+  .header__row--top.header-ready .menu-list__list-item:nth-child(4)  { transition-delay: 0.41s; }
+  .header__row--top.header-ready .menu-list__list-item:nth-child(5)  { transition-delay: 0.48s; }
+  .header__row--top.header-ready .menu-list__list-item:nth-child(6)  { transition-delay: 0.55s; }
+
+  .header__row--top.header-ready .account-button                     { transition-delay: 0.60s; }
+  .header__row--top.header-ready .header-actions__action:last-child  { transition-delay: 0.67s; }
+
+  /* Respeta usuarios con motion reducido */
+  @media (prefers-reduced-motion: reduce) {
+    .header__row--top .header__drawer > details > summary,
+    .header__row--top .header-logo,
+    .header__row--top .menu-list__list-item,
+    .header__row--top .account-button,
+    .header__row--top .header-actions__action {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Limpiá will-change cuando termine la animación para no quemar memoria GPU */
+  .header__row--top.header-ready .header__drawer > details > summary,
+  .header__row--top.header-ready .header-logo,
+  .header__row--top.header-ready .menu-list__list-item,
+  .header__row--top.header-ready .account-button,
+  .header__row--top.header-ready .header-actions__action {
+    /* delay total máximo (~0.67s) + duración (0.7s) = ~1.4s */
+    animation: wagon-clear-will-change 0s 1.5s forwards;
+  }
+
+  @keyframes wagon-clear-will-change {
+    to { will-change: auto; }
+  }
+
+/* END HEADER */
+
+
+/* ============================================================
+   TITLE MASK — palabras emergen desde abajo con máscara real
+   Splitting envuelve cada palabra en .word; aplicamos overflow
+   hidden ahí y animamos los .char saliendo desde el bottom.
+   ============================================================ */
+  
+   [data-anim="title-mask"] .word {
+    display: inline-block;
+    overflow: hidden;
+    /* compensar descenders (g, j, p, y) sin afectar layout */
+    padding-block: 0.18em;
+    margin-block: -0.18em;
+    vertical-align: top;
+  }
+
+  [data-anim="title-mask"] .char {
+    display: inline-block;
+    will-change: transform;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="title-mask"] .char {
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+/* END TITLE MASK */
+
+/* ============================================================
+   TITLE RISE — máscara sobre el título entero, preserva <strong>
+   Detecta automáticamente si hay segunda línea por <strong> block
+   ============================================================ */
+  [data-anim="title-rise"] {
+    display: block;
+    overflow: hidden;
+  }
+
+  [data-anim="title-rise"] > *,
+  [data-anim="title-rise"] .title-rise-part {
+    display: block;
+    will-change: transform;
+    margin: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-anim="title-rise"] > *,
+    [data-anim="title-rise"] .title-rise-part {
+      transform: none !important;
+    }
+  }
+/*END TITLE RISE  */
+
+/* FOOTER */
+  .footer-i {
+    position: relative;
+  }
+/* END FOOTER */
+
+/* MOTION */
+  /***************************************************
+  * Generated by SVG Artista on 6/5/2026, 5:16:10 PM
+  * MIT license (https://opensource.org/licenses/MIT)
+  * W. https://svgartista.net
+  **************************************************/
+
+  @-webkit-keyframes animate-svg-fill-1 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-1 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-1 {
+    -webkit-animation: animate-svg-fill-1 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0s both;
+            animation: animate-svg-fill-1 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-2 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-2 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-2 {
+    -webkit-animation: animate-svg-fill-2 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.08s both;
+            animation: animate-svg-fill-2 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.08s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-3 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-3 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-3 {
+    -webkit-animation: animate-svg-fill-3 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.16s both;
+            animation: animate-svg-fill-3 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.16s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-4 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-4 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-4 {
+    -webkit-animation: animate-svg-fill-4 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.24s both;
+            animation: animate-svg-fill-4 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.24s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-5 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-5 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-5 {
+    -webkit-animation: animate-svg-fill-5 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.32s both;
+            animation: animate-svg-fill-5 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.32s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-6 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-6 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-6 {
+    -webkit-animation: animate-svg-fill-6 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.4s both;
+            animation: animate-svg-fill-6 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.4s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-7 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-7 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-7 {
+    -webkit-animation: animate-svg-fill-7 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.48s both;
+            animation: animate-svg-fill-7 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.48s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-8 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-8 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-8 {
+    -webkit-animation: animate-svg-fill-8 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.56s both;
+            animation: animate-svg-fill-8 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.56s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-9 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-9 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-9 {
+    -webkit-animation: animate-svg-fill-9 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.64s both;
+            animation: animate-svg-fill-9 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.64s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-10 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-10 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-10 {
+    -webkit-animation: animate-svg-fill-10 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.72s both;
+            animation: animate-svg-fill-10 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.72s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-11 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-11 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-11 {
+    -webkit-animation: animate-svg-fill-11 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.8s both;
+            animation: animate-svg-fill-11 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.8s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-12 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-12 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-12 {
+    -webkit-animation: animate-svg-fill-12 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.88s both;
+            animation: animate-svg-fill-12 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.88s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-13 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-13 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-13 {
+    -webkit-animation: animate-svg-fill-13 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.96s both;
+            animation: animate-svg-fill-13 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.96s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-14 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-14 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-14 {
+    -webkit-animation: animate-svg-fill-14 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.04s both;
+            animation: animate-svg-fill-14 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.04s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-15 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-15 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-15 {
+    -webkit-animation: animate-svg-fill-15 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.12s both;
+            animation: animate-svg-fill-15 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.12s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-16 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-16 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-16 {
+    -webkit-animation: animate-svg-fill-16 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.2s both;
+            animation: animate-svg-fill-16 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.2s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-17 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-17 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-17 {
+    -webkit-animation: animate-svg-fill-17 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.28s both;
+            animation: animate-svg-fill-17 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.28s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-18 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-18 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-18 {
+    -webkit-animation: animate-svg-fill-18 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.36s both;
+            animation: animate-svg-fill-18 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.36s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-19 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-19 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-19 {
+    -webkit-animation: animate-svg-fill-19 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.44s both;
+            animation: animate-svg-fill-19 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.44s both;
+  }
+
+
+
+
+  /***************************************************
+  * Generated by SVG Artista on 6/5/2026, 5:20:18 PM
+  * MIT license (https://opensource.org/licenses/MIT)
+  * W. https://svgartista.net
+  **************************************************/
+
+  @-webkit-keyframes animate-svg-fill-1 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-1 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-1 {
+    -webkit-animation: animate-svg-fill-1 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0s both;
+            animation: animate-svg-fill-1 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-2 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-2 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-2 {
+    -webkit-animation: animate-svg-fill-2 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.08s both;
+            animation: animate-svg-fill-2 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.08s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-3 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-3 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-3 {
+    -webkit-animation: animate-svg-fill-3 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.16s both;
+            animation: animate-svg-fill-3 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.16s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-4 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-4 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-4 {
+    -webkit-animation: animate-svg-fill-4 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.24s both;
+            animation: animate-svg-fill-4 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.24s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-5 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-5 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-5 {
+    -webkit-animation: animate-svg-fill-5 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.32s both;
+            animation: animate-svg-fill-5 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.32s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-6 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-6 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-6 {
+    -webkit-animation: animate-svg-fill-6 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.4s both;
+            animation: animate-svg-fill-6 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.4s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-7 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-7 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-7 {
+    -webkit-animation: animate-svg-fill-7 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.48s both;
+            animation: animate-svg-fill-7 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.48s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-8 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-8 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-8 {
+    -webkit-animation: animate-svg-fill-8 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.56s both;
+            animation: animate-svg-fill-8 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.56s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-9 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-9 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-9 {
+    -webkit-animation: animate-svg-fill-9 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.64s both;
+            animation: animate-svg-fill-9 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.64s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-10 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-10 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-10 {
+    -webkit-animation: animate-svg-fill-10 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.72s both;
+            animation: animate-svg-fill-10 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.72s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-11 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-11 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-11 {
+    -webkit-animation: animate-svg-fill-11 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.8s both;
+            animation: animate-svg-fill-11 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.8s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-12 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-12 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-12 {
+    -webkit-animation: animate-svg-fill-12 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.88s both;
+            animation: animate-svg-fill-12 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.88s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-13 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-13 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-13 {
+    -webkit-animation: animate-svg-fill-13 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.96s both;
+            animation: animate-svg-fill-13 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 0.96s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-14 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-14 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-14 {
+    -webkit-animation: animate-svg-fill-14 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.04s both;
+            animation: animate-svg-fill-14 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.04s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-15 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-15 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-15 {
+    -webkit-animation: animate-svg-fill-15 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.12s both;
+            animation: animate-svg-fill-15 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.12s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-16 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-16 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-16 {
+    -webkit-animation: animate-svg-fill-16 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.2s both;
+            animation: animate-svg-fill-16 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.2s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-17 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-17 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-17 {
+    -webkit-animation: animate-svg-fill-17 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.28s both;
+            animation: animate-svg-fill-17 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.28s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-18 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-18 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-18 {
+    -webkit-animation: animate-svg-fill-18 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.36s both;
+            animation: animate-svg-fill-18 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.36s both;
+  }
+
+  @-webkit-keyframes animate-svg-fill-19 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  @keyframes animate-svg-fill-19 {
+    0% {
+      fill: transparent;
+    }
+
+    100% {
+      fill: rgb(255, 121, 31);
+    }
+  }
+
+  .ornament-right-19 {
+    -webkit-animation: animate-svg-fill-19 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.44s both;
+            animation: animate-svg-fill-19 0.25s cubic-bezier(0.95, 0.05, 0.795, 0.035) 1.44s both;
+  }
+
+  button.btn-active-menu {
+    position: relative;
+  }
+
+  button.btn-active-menu span.in {
+    position: relative;
+    width: 4vw;
+    height: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  button.btn-active-menu span.in span {
+    width: 4vw;
+    height: 2px;
+    background: var(--color-chocolat);
+    display: block;
+    position:absolute;
+    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  button.btn-active-menu span.in span._1 {
+    transform: rotate(0) translateY(-1vw);
+  }
+  button.btn-active-menu span.in span._3 {
+    transform: rotate(0) translateY(1vw);
+  }
+
+  button.btn-active-menu.is-active span.in span._1 {
+    transform: rotate(45deg) translateY(0);
+  }
+  button.btn-active-menu.is-active span.in span {
+    transform: scaleX(0);
+  }
+  button.btn-active-menu.is-active span.in span._3 {
+    transform: rotate(-45deg) translateY(0);
+  }
+  .bigmenu ul {
+    list-style: none;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .bigmenu ul li{
+    list-style:none;
+  }
+  .bigmenu ul li a {
+    color: var(--color-chocolat);
+  }
+  .bigmenu .data-bigmenu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bigmenu .social-bigmenu {
+    display: flex;
+    grid-gap: 2vw;
+    align-items: center;
+  }
+
+  .bigmenu .social-bigmenu a, .bigmenu .social-bigmenu * {
+    color: var(--color-chocolat);
+  }
+
+  .bigmenu .social-bigmenu * {}
+
+  .bigmenu .data-bigmenu * {
+    color: var(--color-chocolat);
+  }
+
+  
+/* END MOTION */
+
+
+.field-wagon input,
+.field-wagon textarea{
+  background:transparent;
+}
+.header__row .header__columns .header__column.header__column--left {
+  width: 40%;
+}
+.header__row .header__columns .header__column.header__column--right {
+  width: 40%;
+}
+.header__row .header__columns .header__column.header__column--center {
+  width: 20%;
+}
+.field-wagon input,
+.field-wagon textarea {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.field-wagon input:hover,
+.field-wagon textarea:hover,
+.field-wagon input:focus,
+.field-wagon textarea:focus,
+.field-wagon input:not(:placeholder-shown),
+.field-wagon textarea:not(:placeholder-shown) {
+  opacity: 1;
+}
+aside.content-header>div>.flex {
+  align-items: center;
+}
+
+aside.content-header {
+  padding: 1% 0 1.7%;
+}
+aside.content-header>div>.flex {
+  align-items: center;
+}
+aside.content-header nav.navbar-menu-i ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 1vw;
+  margin: 0;
+}
+aside.content-header .first, aside.content-header .third {
+  width: calc(30% - 1vw);
+}
+aside.content-header .second {
+  width: 40%;
+}
+aside.content-header .third {
+  display: flex;
+  grid-gap: 1vw;
+  align-items: center;
+  justify-content: end;
+}
+aside.content-header .third header-actions {
+  display: flex;
+  grid-gap: 1vw;
+  align-items: center;
+}
+aside.content-header nav.navbar-menu-i ul a {
+  color: var(--color-chocolat);
+}
+aside.content-header .header-logo {
+  margin: 0 auto;
+}
+aside.content-header .header-logo img {
+  width: 100%;
+  height: 100%;
+}
+button.bo-xs.fw-medium.button-unstyled.header-actions__action.header-actions__text-style *,
+.header .header-actions__action {
+  color:var(--color-chocolat);
+}
+.bigmenu .in-bigmenu {
+  overflow: auto;
+  max-height: 90vh;
+  padding:10% 0 0 ;
+}
+
+.link-bigmenu button {
+  display: flex;
+  padding: 0;
+  align-items:center;
+}
+
+header-component.header figure.detail-i {
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.main-collection-grid {
+  display: block;
+}
+.grid-pdps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.grid-pdps .product-grid__item {
+  align-self: stretch !important;
+}
+.desktop-filters-shopping-i form.filters-shopping-i .sort-shopping-i .sort-summary-shopping-i {
+  opacity: 0.6;
+}
+.media-link-shopping-product-i {
+  position: relative;
+  overflow:hidden;
+}
+.media-link-shopping-product-i .media-shopping-product-i {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  aspect-ratio:1 / 1.2;
+}
+.card-shopping-product-i .media-link-shopping-product-i img.img-shopping-product-i {
+  transform: scale(1);
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-shopping-product-i:hover .media-link-shopping-product-i img.img-shopping-product-i {
+  transform: scale(1.1);
+}
+.media-link-shopping-product-i form.quick-add-shopping-product-i {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding: 5%;
+  overflow:hidden;
+}
+.card-shopping-product-i .media-link-shopping-product-i form.quick-add-shopping-product-i button.btn-i {
+  width: 100%;
+  transform:translateY(300%);
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-shopping-product-i:hover .media-link-shopping-product-i form.quick-add-shopping-product-i button.btn-i {
+  transform:translateY(0);
+}
+.media-link-shopping-product-i .media-shopping-product-i img.img-shopping-product-i {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.data-shopping-product-i {
+  display: flex;
+  justify-content: space-between;
+  grid-gap: 1vw;
+}
+
+.data-link-shopping-product-i {
+  padding: 5%;
+  display: block;
+}
+.media-link-shopping-product-i product-price {
+    display: none;
+}
+.data-link-shopping-product-i * {
+  color: var(--color-chocolat);
+}
+.card-shopping-product-i {
+  border: 1px solid #37222342;
+  overflow:hidden;
+  background:var(--color-light-ivory);
+}
+.card-shopping-product-i:hover {
+  border: 1px solid var(--color-chocolat);
+  background:var(--color-ivory);
+}
+.quick-add__product-form-component .shopify-product-form button.btn-i.btn-tumeric{
+  width:100%;
+}
+.media-link-shopping-product-i .native-quick-add-shopping-product-i {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5%;
+  overflow:hidden;
+}
+.card-shopping-product-i .media-link-shopping-product-i .native-quick-add-shopping-product-i .card-gallery {
+  position: relative;
+  transform: translateY(500%);
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-shopping-product-i:hover .media-link-shopping-product-i .native-quick-add-shopping-product-i .card-gallery {
+  transform: translateY(0%);
+}
+
+dialog-component#filters-drawer {
+  background: var(--color-ivory);
+}
+dialog-component#filters-drawer dialog.dialog-drawer.drawer {
+  background: var(--color-ivory);
+  color: var(--color-chocolat);
+}
+dialog-component#filters-drawer dialog.dialog-drawer.drawer .facets__title-wrapper {
+  background-color: var(--color-ivory);
+  color: var(--color-chocolat);
+  padding:5%;
+}
+button.facets-drawer__close.button-unstyled.close-button * {
+  color: var(--color-orange);
+  width: 3vw;
+  height: 3vw;
+}
+.facets-drawer__filters .content-filters  .filter-shopping-i {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2vw;
+}
+.facets-drawer__filters .content-filters {
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 0 10%;
+}
+
+.facets-drawer__filters .content-filters nav.menu-shopping-i {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--color-chocolat);
+}
+[data-bs-toggle="collapse"] i.bi.bi-chevron-down {
+  transform: rotate(180deg);
+  display: block;
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+[data-bs-toggle="collapse"].collapsed i.bi.bi-chevron-down {
+  transform: rotate(0);
+}
+dialog-component#filters-drawer dialog.dialog-drawer.drawer .facets__drawer-actions {
+  background: var(--color-ivory);
+  color: var(--color-chocolat);
+}
+
+.facets-block-wrapper.facets-block-wrapper--horizontal {
+  width: 100%;
+}
+.facets-block-wrapper.facets-block-wrapper--horizontal *{
+  color:var(--color-chocolat);
+}
+.facets--horizontal .facets__form-wrapper * {
+  color: var(--color-chocolat);
+}
+.facets:not(.facets--drawer) sorting-filter-component.sorting-filter.sorting-filter__horizontal {
+  text-align: right;
+}
+.facets__filters-wrapper{
+  display:none;
+}
+
+.facets__form .column-options-wrapper,
+.facets__form .products-count-wrapper {display: none !important;}
+
+.facets__form {
+    justify-content: space-between;
+}
+
+.mobile-filters-shopping-i {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mobile-filters-shopping-i ul {
+  width: max-content;
+  max-width: 50%;
+  list-style: none;
+  display: block;
+  margin-bottom: 0;
+  height: max-content !important;
+}
+
+.mobile-filters-shopping-i .facets.facets--horizontal {
+  width: max-content;
+  max-width: 50%;
+  margin-left:auto;
+  height:max-content;
+  display: block;
+}
+.facets--horizontal .facets__form-wrapper details floating-panel-component {
+  background: var(--color-ivory);
+  position: absolute;
+}
+.facets--horizontal .facets__form-wrapper details{
+  position:relative;
+  padding:0;
+}
+.facets-block-wrapper.facets-block-wrapper--horizontal .facets.facets--horizontal.spacing-style summary.facets__summary {
+  height: max-content;
+  padding:0;
+  display: flex;
+  grid-gap: 1vw;
+}
+facet-remove-component.facets-horizontal-remove {
+  display: none;
+}
+button.filter-link {
+  display: flex;
+  align-items: center;
+  grid-gap: 1vw;
+}
+span.icon-i img {
+  width: 3vw;
+  height: 2vw;
+  min-width: 3vw;
+  display: block;
+}
+.facets--horizontal .facets__form-wrapper details floating-panel-component {
+  background: var(--color-ivory);
+}
+.facets--horizontal .facets__filters-wrapper,
+.facets__filters-wrapper{
+  display:none !important;
+}
+.facets.facets--horizontal.spacing-style {
+  padding: 0 !important;
+}
+.facet.facets--horizontal.spacing-style *{
+  color:var(--color-chocolat);
+}
+.mobile-filters-shopping-i * {
+    color: var(--color-chocolat);
+}
+
+
+/* PRODUCT */
+  section.product-i {
+    background: var(--color-light-ivory);
+    padding-bottom:var(--padding-section);
+  }
+  .head-product-i .price-product-i {
+    display: flex;
+    flex-direction: column;
+  }
+  .head-product-i .price-product-i .bo-xxs.fw-regular a {
+    text-decoration: underline;
+  }
+  .description-product-i a {
+    color: var(--color-chocolat);
+  }
+  .quantity-selector {
+    background: transparent;
+    color: var(--color-chocolat);
+    border-radius: 0 !important;
+    border:1px solid var(--color-chocolat);
+  }
+  .quantity-selector input {
+    color: var(--color-chocolat) !important;
+  }
+  quantity-selector-component.quantity-selector button.button {
+    color: var(--color-chocolat);
+  }
+  .recommendation-products-i .section-resource-list__content {
+    margin-bottom: calc(var(--padding-title) * 2);
+  }
+  .recommendation-products-i {
+    position: relative;
+    padding: var(--padding-section) 0 calc(var(--padding-section) * 2);
+  }
+  fieldset.variant-option.variant-option--buttons.variant-option--default-width-buttons.product-i-option--radio legend {
+    width: 100%;
+    margin-bottom: 0;
+  }
+  fieldset.variant-option.variant-option--buttons.variant-option--default-width-buttons.product-i-option--radio label.variant-option__button-label {
+    display: flex;
+    align-items: center;
+    grid-gap: 0.5vw;
+  }
+  .product-i-option--radio input[type=radio] {
+    position: relative;
+    display: block;
+    opacity: 1;
+    border: 1px solid var(--color-orange) !important;
+  }
+  .options-product-i fieldset legend {
+    width: 100%;
+    margin: 0;
+  }
+  .options-product-i fieldset span.variant-option__button-label__pill {
+    display: none;
+  }
+  .options-product-i .variant-option.product-i-option--radio input[type=radio]{
+    opacity:1;
+    position:relative;
+  }
+
+
+/* Product I — radio style */
+.product-i .product-i-option--radio input[type="radio"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  position: relative !important;
+  display: inline-block !important;
+  opacity: 1 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 1px solid var(--color-orange) !important;
+  border-radius: 50% !important;
+
+  background: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  cursor: pointer;
+}
+
+.product-i .product-i-option--radio input[type="radio"]:checked {
+  border-color: var(--color-orange) !important;
+  background: transparent !important;
+}
+
+.product-i .product-i-option--radio input[type="radio"]::after {
+  content: "" !important;
+  position: absolute !important;
+
+  top: 50% !important;
+  left: 50% !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  border-radius: 50% !important;
+  background: var(--color-orange) !important;
+
+  opacity: 0;
+}
+
+.product-i .product-i-option--radio input[type="radio"]:checked::after {
+  opacity: 1;
+}
+
+.product-i .product-i-option--radio input[type="radio"]:focus,
+.product-i .product-i-option--radio input[type="radio"]:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+  .options-product-i :where(input[type=radio]):checked:after {
+    top: 48%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 1.3vw;
+    height: 1.3vw;
+    background: var(--color-orange);
+    opacity: 1;
+  }
+
+  .item-minishop-menu figure img {
+    transform: scale(1);
+		transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .item-minishop-menu:hover figure img {
+    transform: scale(1.1);
+  }
+  .recommendations-splide-wrapper-i .resource-list__item {
+    padding: 5% 0;
+  }
+
+
+
+  .product-i .product-i-option--pill .variant-option__button-label.on {
+    background-color: var(--color-chocolat);
+    border-color: var(--color-chocolat);
+    color: var(--color-ivory);
+  }
+
+  .product-i .product-i-option--pill .variant-option__button-label.on .variant-option__button-label__text {
+    color: var(--color-ivory);
+  }
+
+  .product-i .product-i-option--pill .variant-option__button-label {
+    background-color: transparent;
+    border-color: var(--color-chocolat);
+    color: var(--color-chocolat);
+  }
+  .product-i .product-i-option--pill .variant-option__button-label:hover{
+    
+  }
+
+
+
+
+  /* Product options layout */
+  .options-product-i {
+    margin-bottom: 1.5vw;
+  }
+
+  .options-product-i .variant-option:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .options-product-i .variant-option__legend,
+  .options-product-i legend,
+  .actions-product-i .quantity-selector-wrapper::before {
+    display: block;
+    width: max-content;
+    margin-bottom: .6vw;
+    color: var(--color-chocolat);
+    
+    line-height: inherit;
+    font-weight: inherit;
+  }
+
+  .options-product-i .variant-option__legend,
+  .options-product-i legend {
+    font-family: inherit;
+  }
+
+  .options-product-i .variant-option__legend,
+  .options-product-i legend,
+  .actions-product-i .quantity-selector-wrapper::before {
+    content: "Quantity";
+  }
+
+  .options-product-i .variant-option__legend,
+  .options-product-i legend {
+    font-size: inherit;
+  }
+
+  .options-product-i .variant-option__legend,
+  .options-product-i legend,
+  .actions-product-i .quantity-selector-wrapper::before {
+  }
+  /* ===== Base ===== */
+
+  .options-product-i .variant-option__button-label,
+  .options-product-i label {
+    position: relative;
+    border: 1px solid var(--color-chocolat);
+    background: transparent;
+    color: var(--color-chocolat);
+    border-radius: 0;
+    padding: .8vw 1vw;
+    cursor: pointer;
+  }
+
+  /* ===== Radio mode ===== */
+
+  .options-product-i .product-i-option--radio .variant-option__button-label,
+  .options-product-i .product-i-option--radio label {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: .45vw;
+  }
+
+  .options-product-i .product-i-option--radio input[type="radio"] {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+    border-color: var(--color-orange);
+  }
+
+  /* ===== Pill mode ===== */
+
+  .options-product-i .product-i-option--pill .variant-option__button-label,
+  .options-product-i .product-i-option--pill label {
+    border: 1px solid var(--color-chocolat);
+    background: transparent;
+    color: var(--color-chocolat);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .options-product-i .product-i-option--pill .variant-option__button-label.on {
+    background: var(--color-chocolat);
+    border-color: var(--color-chocolat);
+  }
+
+  .options-product-i .product-i-option--pill .variant-option__button-label.on,
+  .options-product-i .product-i-option--pill .variant-option__button-label.on * {
+    color: var(--color-ivory);
+  }
+
+  /* Quantity beside second option */
+
+  .actions-product-i .product-form-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vw;
+  }
+
+
+  .actions-product-i .quantity-selector {
+    margin-left:auto;
+    border: 1px solid var(--color-chocolat);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 .9vw;
+  }
+
+  .actions-product-i .quantity-selector button,
+  .actions-product-i .quantity-selector input {
+    border: 0;
+    background: transparent;
+    color: var(--color-chocolat);
+    text-align: center;
+  }
+
+  .actions-product-i .quantity-selector input {
+    width: 3vw;
+  }
+
+  /* Add to cart full width */
+  .actions-product-i .add-to-cart-button,
+  .actions-product-i button[name="add"] {
+    background: var(--color-tumeric);
+    color: var(--color-chocolat);
+    border: 0;
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 991px) {
+    .options-product-i variant-picker,
+    .options-product-i .variant-picker,
+    .options-product-i .variant-picker__form {
+      grid-template-columns: 1fr;
+      gap: 4vw;
+    }
+
+    .actions-product-i {
+      margin-top: 0;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    .actions-product-i .add-to-cart-button,
+    .actions-product-i button[name="add"] {
+      width: 100%;
+      margin-left: 0;
+    }
+
+  }
+
+
+  
+
+
+
+
+  /* Variant option labels */
+  .options-product-i legend,
+  .options-product-i .variant-option__legend,
+  .options-product-i .form__label {
+    display: block;
+    margin-bottom: 0.7vw;
+  }
+
+  .options-product-i legend,
+  .options-product-i .variant-option__legend,
+  .options-product-i .form__label,
+  .actions-product-i .quantity-selector-wrapper::before {
+    line-height: 1.2;
+    font-weight: 400;
+    color: var(--color-chocolat);
+  }
+
+  /* Chocolate / flavor options as radio */
+  .product-i-option--radio {
+    margin-bottom: 1.5vw;
+  }
+
+  .product-i-option--radio .variant-option__values,
+  .product-i-option--radio .variant-picker__option-values,
+  .product-i-option--radio fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5vw;
+  }
+
+  .product-i-option--radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .product-i-option--radio label,
+  .product-i-option--radio .variant-option__button-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45vw;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-chocolat);
+    cursor: pointer;
+  }
+
+  .product-i-option--radio label::before,
+  .product-i-option--radio .variant-option__button-label::before {
+    content: "";
+    width: 1.1vw;
+    height: 1.1vw;
+    border: 1px solid var(--color-orange);
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    opacity:0;
+  }
+
+  .product-i-option--radio input[type="radio"]:checked + label::before,
+  .product-i-option--radio input[type="radio"]:checked + .variant-option__button-label::before {
+    border: 0.32vw solid var(--color-orange);
+  }
+
+  /* Everything else as pills */
+  .product-i-option--pill {    
+    margin-bottom: calc(var(--padding-title) * 2);
+  }
+
+  .product-i-option--pill .variant-option__values,
+  .product-i-option--pill .variant-picker__option-values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6vw;
+  }
+
+  .product-i-option--pill input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .product-i-option--pill label,
+  .product-i-option--pill .variant-option__button-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3vw;
+    padding: 0.7vw 1vw;
+    border: 1px solid var(--color-chocolat);
+    background: transparent;
+    color: var(--color-chocolat);
+    cursor: pointer;
+  }
+
+  .product-i-option--pill input[type="radio"]:checked + label,
+  .product-i-option--pill input[type="radio"]:checked + .variant-option__button-label {
+    background: var(--color-chocolat);
+    color: var(--color-cream);
+  }
+
+  /* Quantity label */
+  .actions-product-i .quantity-selector-wrapper::before {
+    content: "Quantity";
+    display: block;
+    margin-bottom: 0.7vw;
+  }
+/* END PRODUCT */
+
+  .actions-product-i .quantity-selector-wrapper {
+    display: block;
+  }
+  .description-product-i__toggle {
+    text-decoration: underline;
+  }
+
+/* ABOUT */
+  section.about-i {
+    position: relative;
+  }
+  figure.media-about-i {
+    height: calc(var(--padding-section) * 2);
+    margin-bottom: var(--padding-title);
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  figure.media-about-i img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    inset: 0;
+  }
+  figure.ornament-about-i {
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+  figure.ornament-about-i img {
+    object-fit:contain;
+  }
+  section.about-i {
+    color: var(--color-chocolat);
+    background: var(--color-dark-ivory);
+    position: relative;
+  }
+  section.about-i .in-about-i>div {
+    padding: calc(var(--padding-section) * 0.6) 0 0;
+  }
+  section.about-i .in-about-i .sidecontainer-i {
+    display: flex;
+    flex-direction: column;
+    grid-gap: calc(var(--padding-title) * 1.4);
+  }
+  section.about-ii {
+    background: var(--color-light-ivory);
+    color: var(--color-chocolat);
+  }
+
+  section.about-ii .in-about-ii {
+      padding: var(--padding-section) 0;
+  }
+
+/* END ABOUT */
+
+
+@media(min-width:1200px){
+  
+  .product-i .product-i-option--radio input[type="radio"] {
+
+    width: 1vw;
+    height: 1vw;
+    min-width: 1vw;
+    min-height: 1vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"]::after {
+    width: 0.55vw;
+    height: 0.55vw;
+  }
+
+  quantity-selector-component.quantity-selector button.button{
+    height:4vw;
+  }
+  
+  .options-product-i .product-i-option--pill .variant-option__button-label,
+  .options-product-i .product-i-option--pill label {
+    padding: .8vw 1vw;
+  }
+  .shipping-i .item-shipping-i.item-shipping-i-1 {
+    position: sticky;
+    top: calc(var(--padding-section) * 2);
+  }
+  .actions-product-i .quantity-selector-wrapper {
+    display: block;
+    width: max-content;
+  }
+  .actions-product-i .quantity-selector{
+    width:max-content;
+  }
+  .head-product-i .price-product-i {
+    grid-gap: 1vw;
+  }
+  
+  .icon-shipping-i {
+    width: 1.4vw;
+    height: 1.4vw;
+  }
+  .facets-drawer__filters .content-filters nav.menu-shopping-i {
+    grid-gap: 1vw;
+    padding: 0 0 1.5vw;
+    margin-bottom: 1.5vw;
+  }
+  .data-product-i {
+    width: 90%;
+    margin-left: auto;
+    color:var(--color-chocolat);
+  }
+  .card-shopping-product-i {
+    border-radius:0.4vw;
+  }
+  .sublist-collapse-bigmenu {
+    padding: 2vw 0;
+  }
+  .bigmenu .data-bigmenu {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+  }
+  .bigmenu ul,
+  .bigmenu .data-bigmenu {
+    grid-gap: 2vw;
+  }
+  .link-bigmenu button {
+    grid-gap: 1vw;
+  }
+  aside.content-header .header-logo {
+    width: 10vw;
+  }
+  #header-component[data-menu-style=drawer] .header__row--top:not(.divider--page-width) {
+    padding: 0 0 1vw;
+  }
+  .actions-getintouch-i button {
+    margin-left: auto;
+  }
+  .content-for-layout>.shopify-section:last-of-type>section {
+    padding-bottom: calc(var(--padding-section) * 2);
+  }
+  .content-for-layout {
+    margin-top: -6vw;
+  }
+  .content-for-layout>div:first-of-type>section:first-of-type {
+    padding-top: calc(var(--padding-section) * 2);
+  }
+  section.superhero-i {
+    margin-top: -5vw;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i {
+    width: calc(100% - 6vw);
+  }
+  .header__column--right a, .header__column--right cart-drawer-component, .header__column--right search-button,
+  .menu-list__list-item {
+    padding: 0 1vw;
+  }
+  aside.content-header .header-logo span.header-logo__image-container {
+    width: 10vw;
+  }
+  .field-wagon input,
+  .field-wagon textarea {
+		font-family:'stevie-sans', sans-serif;
+    padding: 0.5vw;
+    border-radius: 1vw;
+    border: 0.881px solid var(--color-chocolat);
+    color: var(--color-azul-oscuro);
+  }
+  
+  header-component.header figure.detail-i {
+    top: 40%;
+  }
+  header-component.header.is-active figure.detail-i {
+    top:20%;
+  }
+  .header-actions__action span.icon-navbar svg{
+    width:3vw;
+    height:3vw;
+  }
+  
+  .accordion-product-i .accordion-button span.btn-icon span.line {
+    width: 1vw;
+  }
+
+  .media-product-i,
+  .thumb-product-i {
+    border-radius:0.5vw;
+  }
+}
+@media(max-width:1200px) and (min-width:992px){
+  
+  .accordion-product-i .accordion-button span.btn-icon span.line {
+    width: 1vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"] {
+
+    width: 1vw;
+    height: 1vw;
+    min-width: 1vw;
+    min-height: 1vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"]::after {
+    width: 0.55vw;
+    height: 0.55vw;
+  }
+
+  quantity-selector-component.quantity-selector button.button{
+    height:4vw;
+  }
+  .options-product-i .product-i-option--pill .variant-option__button-label,
+  .options-product-i .product-i-option--pill label {
+    padding: .8vw 1vw;
+  }
+  .media-product-i,
+  .thumb-product-i {
+    border-radius:0.5vw;
+  }
+  
+  .shipping-i .item-shipping-i.item-shipping-i-1 {
+    position: sticky;
+    top: calc(var(--padding-section) * 2);
+  }
+  .actions-product-i .quantity-selector-wrapper {
+    display: block;
+    width: max-content;
+  }
+  .actions-product-i .quantity-selector{
+    width:max-content;
+  }
+  .head-product-i .price-product-i {
+    grid-gap: 1vw;
+  }
+  .icon-shipping-i {
+    width: 1.4vw;
+    height: 1.4vw;
+  }
+  .data-product-i {
+    width: 90%;
+    margin-left: auto;
+    color:var(--color-chocolat);
+  }
+  .facets-drawer__filters .content-filters nav.menu-shopping-i {
+    grid-gap: 1vw;
+    padding: 0 0 1.5vw;
+    margin-bottom: 1.5vw;
+  }
+  .card-shopping-product-i {
+    border-radius:0.4vw;
+  }
+  .sublist-collapse-bigmenu {
+    padding: 2vw 0;
+  }
+  .bigmenu .data-bigmenu {
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+  }
+  .bigmenu ul,
+  .bigmenu .data-bigmenu {
+    grid-gap: 2vw;
+  }
+  .link-bigmenu button {
+    grid-gap: 1vw;
+  }
+  aside.content-header .header-logo {
+    width: 25vw;
+  }
+  .header-actions__action span.icon-navbar svg{
+    width:3vw;
+    height:3vw;
+  }
+  
+  header-component.header figure.detail-i {
+    top: 40%;
+  }
+  header-component.header.is-active figure.detail-i {
+    top: 30%;
+  }
+  #header-component[data-menu-style=drawer] .header__row--top:not(.divider--page-width) {
+    padding: 0 0 1vw;
+  }
+  .actions-getintouch-i button {
+    margin-left: auto;
+  }
+  .content-for-layout>.shopify-section:last-of-type>section {
+    padding-bottom: calc(var(--padding-section) * 2);
+  }
+  .content-for-layout {
+    margin-top: -5vw;
+  }
+  .content-for-layout>div:first-of-type>section:first-of-type {
+    padding-top: calc(var(--padding-section) * 1.4);
+  }
+  section.superhero-i {
+    margin-top: -5vw;
+  }
+
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i {
+    width: calc(100% - 6vw);
+  }
+  .header__column--right a, .header__column--right cart-drawer-component, .header__column--right search-button,
+  .menu-list__list-item {
+    padding: 0 1vw;
+  }
+  aside.content-header .header-logo span.header-logo__image-container {
+    width: 10vw;
+  }
+  .field-wagon input,
+  .field-wagon textarea {
+		font-family:'stevie-sans', sans-serif;
+    padding: .8vw;
+    border-radius: 1vw;
+    border: 0.881px solid var(--color-chocolat);
+    color: var(--color-chocolat);
+  }
+}
+@media(max-width:992px) and (min-width:768px){
+  
+  .accordion-product-i .accordion-button span.btn-icon span.line {
+    width: 1vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"] {
+    width: 1vw;
+    height: 1vw;
+    min-width: 1vw;
+    min-height: 1vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"]::after {
+    width: 0.55vw;
+    height: 0.55vw;
+  }
+
+  quantity-selector-component.quantity-selector button.button{
+    height:5vw;
+  }
+  .options-product-i .product-i-option--pill .variant-option__button-label,
+  .options-product-i .product-i-option--pill label {
+    padding: 1vw 1.3vw;
+  }
+  .media-product-i,
+  .thumb-product-i {
+    border-radius:1vw;
+  }
+  .actions-product-i .quantity-selector-wrapper{
+    margin-bottom:var(--padding-title);
+  }
+  .shipping-i .item-shipping-i.item-shipping-i-1 {
+    position: sticky;
+    top: calc(var(--padding-section) * 2);
+  }
+  .actions-product-i .quantity-selector-wrapper{
+    width: 50%;
+  }
+  .actions-product-i .quantity-selector{
+    width:100%;
+  }
+  .head-product-i .price-product-i {
+    grid-gap: 1vw;
+  }
+  .actions-product-i .product-form-buttons{
+    grid-gap:2vw;
+  }
+  .icon-shipping-i {
+    width: 2.4vw;
+    height: 2.4vw;
+  }
+  .facets-drawer__filters .content-filters nav.menu-shopping-i {
+    grid-gap: 1.5vw;
+    padding: 0 0 2vw;
+    margin-bottom: 2vw;
+  }
+  .card-shopping-product-i {
+    border-radius:0.6vw;
+  }
+  .sublist-collapse-bigmenu {
+    padding: 4vw 0;
+  }
+  .bigmenu .data-bigmenu {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+  }
+  .bigmenu ul,
+  .bigmenu .data-bigmenu {
+    grid-gap: 3vw;
+  }
+  .link-bigmenu button {
+    grid-gap: 2vw;
+  }
+  .header-actions__action span.icon-navbar svg{
+    width:4vw;
+    height:4vw;
+  }
+  aside.content-header .header-logo span {
+    width: 50%;
+  }
+  header-component.header figure.detail-i {
+    top: 30%;
+  }
+  header-component.header.is-active figure.detail-i {
+    height:100%;
+  }
+  #header-component[data-menu-style=drawer] .header__row--top:not(.divider--page-width) {
+    padding: 2vw 0 ;
+  }
+  .actions-getintouch-i button {
+    margin-left: auto;
+  }
+  .content-for-layout>.shopify-section:last-of-type>section {
+    padding-bottom: calc(var(--padding-section) * 2);
+  }
+  .content-for-layout {
+    margin-top: -5vw;
+  }
+  .content-for-layout>div:first-of-type>section:first-of-type {        
+    padding-top: calc(var(--padding-section) * 1.5);
+  }
+  section.superhero-i {
+    margin-top: -5vw;
+  }
+  
+  
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i {
+    width: calc(100% - 6vw);
+  }
+  section.superhero-i .item-superhero.item-superhero-1 {
+    padding: calc(var(--padding-section) * 3) 0 var(--padding-section);
+  }
+  .header__column--right a, .header__column--right cart-drawer-component, .header__column--right search-button,
+  .menu-list__list-item {
+    padding: 0 1vw;
+  }
+  aside.content-header .header-logo span.header-logo__image-container {
+    width: 23vw;
+  }
+  .field-wagon {
+    grid-gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .field-wagon input,
+  .field-wagon textarea {
+		font-family:'stevie-sans', sans-serif;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: 0.881px solid var(--color-chocolat);
+    color: var(--color-chocolat);
+  }
+  .field-wagon textarea {
+    min-height: 25vw;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i .sidecontainer-i {
+    grid-gap: 4vw;
+  }
+  aside.content-header {
+    padding: 2% 0;
+  }
+  
+  .head-product-i {
+    width: 80%;
+  }
+  .description-product-i {
+    margin-bottom: 4vw;
+  }
+}
+@media(max-width:768px) and (min-width:576px){
+  
+  .accordion-product-i .accordion-button span.btn-icon span.line {
+    width: 1.3vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"] {
+    width: 2.6vw;
+    height: 2.6vw;
+    min-width: 2.6vw;
+    min-height: 2.6vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"]::after {
+    width: 1.3vw;
+    height: 1.3vw;
+  }
+  quantity-selector-component.quantity-selector button.button{
+    height:7vw;
+  }
+  .options-product-i .product-i-option--pill .variant-option__button-label,
+  .options-product-i .product-i-option--pill label {
+    padding: 2vw 2.3vw;
+  }
+  .media-product-i,
+  .thumb-product-i {
+    border-radius:1vw;
+  }
+  .actions-product-i .product-form-buttons{
+    grid-gap:2vw;
+  }
+  .description-product-i {
+    margin-bottom: 5vw;
+  }
+  .head-product-i {
+    width: 100%;
+  }
+  .actions-product-i .quantity-selector-wrapper{
+    width: 50%;
+  }
+  .actions-product-i .quantity-selector{
+    width:100%;
+  }
+  .head-product-i .price-product-i {
+    grid-gap: 2vw;
+  }
+  .icon-shipping-i {
+    width: 2.7vw;
+    height: 2.7vw;
+  }
+  .facets-drawer__filters .content-filters nav.menu-shopping-i {
+    grid-gap: 2vw;
+    padding: 0 0 3vw;
+    margin-bottom: 3vw;
+  }
+  .card-shopping-product-i {
+    border-radius:0.8vw;
+  }
+  .content-for-layout {
+    margin-top: calc(var(--padding-section) * -1);
+  }
+  .sublist-collapse-bigmenu {
+    padding: 4vw 0;
+  }
+  .bigmenu .data-bigmenu {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+  .bigmenu ul,
+  .bigmenu .data-bigmenu {
+    grid-gap: 4vw;
+  }
+  .link-bigmenu button {
+    grid-gap: 3vw;
+  }
+  .header-actions__action span.icon-navbar svg{
+    width:5vw;
+    height:5vw;
+  }
+  aside.content-header .header-logo {
+    width: 100%;
+  }
+  header-component.header figure.detail-i {
+    top: 30%;
+    height:130%;
+  }
+  header-component.header.is-active figure.detail-i {
+    height: 100%;
+  }
+  #header-component[data-menu-style=drawer] .header__row--top:not(.divider--page-width) {
+    padding: 3vw 0 6vw;
+  }
+  .content-for-layout>.shopify-section:last-of-type>section {
+    padding-bottom: calc(var(--padding-section) * 3);
+  }
+  .content-for-layout>div:first-of-type>section:first-of-type {        
+    padding-top: calc(var(--padding-section) * 2);
+  }
+  section.superhero-i {
+    margin-top: 0;
+  }
+  
+  
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i {
+    width: 90%;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i .sidecontainer-i {
+    grid-gap: 5vw;
+  }
+  .header__column--right a, .header__column--right cart-drawer-component, .header__column--right search-button,
+  .menu-list__list-item {
+    padding: 0 1vw;
+  }
+  aside.content-header .header-logo span.header-logo__image-container {
+    width: 22vw;
+  }
+  .field-wagon {
+    grid-gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .field-wagon input,
+  .field-wagon textarea {
+		font-family:'stevie-sans', sans-serif;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: 0.881px solid var(--color-chocolat);
+    color: var(--color-chocolat);
+    font-size:2.6vw;
+  }
+  .field-wagon textarea {
+    min-height: 25vw;
+  }
+  aside.content-header {
+    padding: 5% 0 4%;
+  }
+}
+@media(max-width:576px) and (min-width:340px){
+  
+  .accordion-product-i .accordion-button span.btn-icon span.line {
+    width: 2vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"] {
+    width: 2.6vw;
+    height: 2.6vw;
+    min-width: 2.6vw;
+    min-height: 2.6vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"]::after {
+    width: 1.3vw;
+    height: 1.3vw;
+  }
+  quantity-selector-component.quantity-selector button.button{
+    height:7vw;
+  }
+  .options-product-i .product-i-option--pill .variant-option__button-label,
+  .options-product-i .product-i-option--pill label {
+    padding: 2vw 2.5vw;
+  }
+  .media-product-i,
+  .thumb-product-i {
+    border-radius:2vw;
+  }
+  .actions-product-i .product-form-buttons{
+    grid-gap:3vw;
+  }
+  .description-product-i {
+    margin-bottom: 5vw;
+  }
+  .head-product-i {
+    width: 100%;
+  }
+  .actions-product-i .quantity-selector-wrapper{
+    width: 50%;
+  }
+  .actions-product-i .quantity-selector{
+    width:100%;
+  }
+  .head-product-i .price-product-i {
+    grid-gap: 2vw;
+  }
+  .icon-shipping-i {
+    width: 3vw;
+    height: 3vw;
+  }
+  .facets-drawer__filters .content-filters nav.menu-shopping-i {
+    grid-gap: 2vw;
+    padding: 0 0 3vw;
+    margin-bottom: 3vw;
+  }
+  .card-shopping-product-i {
+    border-radius:1vw;
+  }
+  .content-for-layout {
+    margin-top: calc(var(--padding-section) * -1);
+  }
+  .sublist-collapse-bigmenu {
+    padding: 5vw 0;
+  }
+  .bigmenu .data-bigmenu {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+  .bigmenu ul,
+  .bigmenu .data-bigmenu {
+    grid-gap: 4vw;
+  }
+  .link-bigmenu button {
+    grid-gap: 3vw;
+  }
+  .header-actions__action span.icon-navbar svg{
+    width:7vw;
+    height:7vw;
+  }
+  aside.content-header .header-logo {
+    width: 100%;
+  }
+  header-component.header figure.detail-i {
+    top: 30%;
+    height: 130%;
+  }
+  header-component.header.is-active figure.detail-i {
+    height: 100%;
+  }
+  #header-component[data-menu-style=drawer] .header__row--top:not(.divider--page-width) {
+    padding: 3vw 0 6vw;
+  }
+  .content-for-layout>.shopify-section:last-of-type>section {
+    padding-bottom: calc(var(--padding-section) * 3);
+  }
+  .content-for-layout>div:first-of-type>section:first-of-type {
+    padding-top: calc(var(--padding-section) * 2);
+  }
+  section.superhero-i {
+    margin-top: -50vw;
+  }
+  
+  
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i {
+    width: 90%;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i .sidecontainer-i {
+    grid-gap: 5vw;
+  }
+  .header__column--right a, .header__column--right cart-drawer-component, .header__column--right search-button,
+  .menu-list__list-item {
+    padding: 0 1vw;
+  }
+  aside.content-header .header-logo span.header-logo__image-container {
+    width: 30vw;
+  }
+  .field-wagon input,
+  .field-wagon textarea {
+		font-family:'stevie-sans', sans-serif;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: 0.881px solid var(--color-chocolat);
+    color: var(--color-chocolat);
+    font-size:3vw;
+  }
+  .field-wagon {
+    grid-gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .field-wagon textarea {
+    min-height: 25vw;
+  }
+  aside.content-header {
+    padding: 6% 0 3%;
+  }
+}
+@media(min-width:992px){
+  
+  .description-product-i {
+    margin-bottom: 2vw;
+  }
+  .product-i-thumbs {
+    width: 30%;
+    flex: 0 0 30%;
+  }
+  
+  .sidebar-shopping-i {
+    width: 80%;
+  }
+  .field-wagon {
+    grid-gap: 0.5vw;
+    margin-bottom: 1.5vw;
+  }
+  
+  section.superhero-i .item-superhero.item-superhero-1 {
+    padding: calc(var(--padding-section) * 3) 0 var(--padding-section);
+    min-height: calc(100vh + var(--padding-section));
+  }
+  
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i .sidecontainer-i {
+    grid-gap: 2vw;
+  }
+}
+@media(max-width:992px){
+  .breadcrumb-product-i.bo-xs {
+    display: none;
+  }
+  .gallery-product-i{
+    flex-wrap:wrap;
+  }
+  section.product-i .item-product-i.item-product-i-1 .gallery-product-i .product-i-thumbs {
+    order: 2;
+  }
+  section.product-i .item-product-i.item-product-i-1 .gallery-product-i .product-i-main {
+    order: 1;
+  }
+  .product-i-thumbs {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  .data-product-i {
+    width: 100%;
+    color:var(--color-chocolat);
+  }
+  .sidebar-shopping-i {
+    width: 100%;
+  }
+  .data-product-i {
+    padding-top: var(--padding-section);
+  }
+  .data-product-i figure.detail {
+    width: 100%;
+    padding: calc(var(--padding-section) / 4) 0;
+    opacity:0;
+  }
+  search-button.search-action.search-action--text.search-action--hidden-on-drawer{
+    display:none;
+  }
+}
+@media(min-width:768px){
+  .accordion-product-i .accordion-collapse .accordion-body .in-accordion {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .grid-pdps {
+    grid-gap: 1vw;
+  }
+
+  .grid-pdps .product-grid__item {
+    width: calc(33.333% - 0.69vw);
+  }
+}
+@media(max-width:768px){
+  .shipping-i .item-shipping-i.item-shipping-i-1 {
+    margin-bottom: var(--padding-title);
+  }
+  .actions-product-i .quantity-selector-wrapper{
+    margin-bottom:var(--padding-title);
+  }
+  .grid-pdps {
+    grid-gap: 4vw;
+  }
+  .grid-pdps .product-grid__item {
+    width: calc(50% - 2vw);
+  }
+  .field-wagon input,
+  .field-wagon textarea {
+    padding: 3vw;
+    border-radius: 4vw;
+    border: 0.881px solid rgba(55, 34, 35, 0.50);
+    color: var(--color-chocolat);
+  }
+  .field-wagon input:placeholder,
+  .field-wagon textarea:placeholder{
+    color: var(--color-chocolat);
+    opacity:1;
+  }
+}
+@media(max-width:340px){
+  
+  .accordion-product-i .accordion-button span.btn-icon span.line {
+    width: 2vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"] {
+    width: 2.6vw;
+    height: 2.6vw;
+    min-width: 2.6vw;
+    min-height: 2.6vw;
+  }
+  .product-i .product-i-option--radio input[type="radio"]::after {
+    width: 1.3vw;
+    height: 1.3vw;
+  }
+  quantity-selector-component.quantity-selector button.button{
+    height:8vw;
+  }
+  .options-product-i .product-i-option--pill .variant-option__button-label,
+  .options-product-i .product-i-option--pill label {
+    padding: 2vw 3vw;
+  }
+  .media-product-i,
+  .thumb-product-i {
+    border-radius:2vw;
+  }
+  .actions-product-i .product-form-buttons{
+    grid-gap:3vw;
+  }
+  .description-product-i {
+    margin-bottom: 5vw;
+  }
+  .head-product-i {
+    width: 100%;
+  }
+  .actions-product-i .quantity-selector-wrapper{
+    width: 50%;
+  }
+  .actions-product-i .quantity-selector{
+    width:100%;
+  }
+  .head-product-i .price-product-i {
+    grid-gap: 2vw;
+  }
+  .icon-shipping-i {
+    width: 3vw;
+    height: 3vw;
+  }
+  .facets-drawer__filters .content-filters nav.menu-shopping-i {
+    grid-gap: 2vw;
+    padding: 0 0 3vw;
+    margin-bottom: 3vw;
+  }
+  .card-shopping-product-i {
+    border-radius:1.2vw;
+  }
+  .content-for-layout {
+    margin-top: calc(var(--padding-section) * -1);
+  }
+  .sublist-collapse-bigmenu {
+    padding: 5vw 0;
+  }
+  .bigmenu .data-bigmenu {
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+  }
+  .bigmenu ul,
+  .bigmenu .data-bigmenu {
+    grid-gap: 5vw;
+  }
+  .link-bigmenu button {
+    grid-gap: 4vw;
+  }
+  .header-actions__action span.icon-navbar svg{
+    width:7vw;
+    height:7vw;
+  }
+  aside.content-header {
+    padding: 6% 0 3%;
+  }
+  aside.content-header .header-logo {
+    width: 100%;
+  }
+  header-component.header figure.detail-i {
+    height: 130%;
+    top: 30%;
+  }
+  header-component.header.is-active figure.detail-i {
+    height: 100%;
+  }
+  #header-component[data-menu-style=drawer] .header__row--top:not(.divider--page-width) {
+    padding: 3vw 0 6vw;
+  }
+  .content-for-layout>.shopify-section:last-of-type>section {
+    padding-bottom: calc(var(--padding-section) * 2);
+  }
+  .content-for-layout>div:first-of-type>section:first-of-type {
+    padding-top: calc(var(--padding-section) * 2);
+  }
+  section.superhero-i {
+    margin-top: -50vw;
+  }
+  
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i {
+    width: 90%;
+  }
+  section.superhero-i .item-superhero.item-superhero-1 .in-item-superhero-i .sidecontainer-i {
+    grid-gap: 5vw;
+  }
+  .field-wagon textarea {
+    min-height: 30vw;
+  }
+  .header__column--right a, .header__column--right cart-drawer-component, .header__column--right search-button,
+  .menu-list__list-item {
+    padding: 0 1vw;
+  }
+  aside.content-header .header-logo span.header-logo__image-container {
+    width: 30vw;
+  }
+  .field-wagon {
+    grid-gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .field-wagon input,
+  .field-wagon textarea {
+		font-family:'stevie-sans', sans-serif;
+    padding: 1vw;
+    border-radius: 1vw;
+    border: 0.881px solid rgba(55, 34, 35, 0.50);
+    color: var(--color-chocolat);
+    font-size:4vw;
+  }
+}
+
+
+
+
+
+/* FORM */
+  .field-wagon {
+    display: flex;
+    flex-direction: column;
+  }
+  .field-wagon label>strong {
+    color: #F2272B;
+  }
+
+  .field-wagon input::placeholder,
+  .field-wagon textarea::placeholder {
+    opacity: 0.5;
+  }
+/* END FORM */
