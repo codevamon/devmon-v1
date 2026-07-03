@@ -18,7 +18,7 @@
 
 /* HEADER */
   body {
-    background: var(--color-blanco);
+    background: var(--color-white);
   }
   .header__row.header__row--top{
     color:var(--color-chocolat);
@@ -82,12 +82,12 @@
     width: 100%;
     height: 2px;
     top:50%;
-    background: var(--color-blanco);
+    background: var(--color-white);
   }
 
   .menu-drawer.color-scheme-1 {
-    background: var(--color-azul-oscuro);
-    color: var(--color-blanco);
+    background: var(--color-900);
+    color: var(--color-white);
   }
   .menu-drawer.color-scheme-1 a.btn-brand {
     display: flex;
@@ -95,7 +95,7 @@
     justify-content: center;
   }
   .menu-drawer.color-scheme-1 ul.menu-drawer__menu.has-submenu a {
-    color: var(--color-blanco);
+    color: var(--color-white);
     font-family: var(--font-display);
     text-transform: uppercase;
     font-weight: 600;
@@ -1651,7 +1651,7 @@ header-component.header figure.detail-i {
   color: var(--color-chocolat);
 }
 .card-shopping-product-i {
-  border: 1px solid #37222342;
+  border: 1px solid color-mix(in srgb, var(--color-900) 26%, transparent);
   overflow:hidden;
   background:var(--color-light-ivory);
 }
@@ -2237,7 +2237,7 @@ span.icon-i img {
   .product-i-option--pill input[type="radio"]:checked + label,
   .product-i-option--pill input[type="radio"]:checked + .variant-option__button-label {
     background: var(--color-chocolat);
-    color: var(--color-cream);
+    color: var(--color-inner-glow);
   }
 
   /* Quantity label */
@@ -2415,7 +2415,7 @@ span.icon-i img {
     padding: 0.5vw;
     border-radius: 1vw;
     border: 0.881px solid var(--color-chocolat);
-    color: var(--color-azul-oscuro);
+    color: var(--color-900);
   }
   
   header-component.header figure.detail-i {
@@ -3073,7 +3073,7 @@ span.icon-i img {
   .field-wagon textarea {
     padding: 3vw;
     border-radius: 4vw;
-    border: 0.881px solid rgba(55, 34, 35, 0.50);
+    border: 0.881px solid color-mix(in srgb, var(--color-900) 50%, transparent);
     color: var(--color-chocolat);
   }
   .field-wagon input:placeholder,
@@ -3210,7 +3210,7 @@ span.icon-i img {
 		font-family: var(--font-body);
     padding: 1vw;
     border-radius: 1vw;
-    border: 0.881px solid rgba(55, 34, 35, 0.50);
+    border: 0.881px solid color-mix(in srgb, var(--color-900) 50%, transparent);
     color: var(--color-chocolat);
     font-size:4vw;
   }
@@ -3226,7 +3226,7 @@ span.icon-i img {
     flex-direction: column;
   }
   .field-wagon label>strong {
-    color: #F2272B;
+    color: var(--color-wild-pulse);
   }
 
   .field-wagon input::placeholder,
