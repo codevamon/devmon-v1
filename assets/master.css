@@ -182,61 +182,100 @@
 		font-weight: 700;
 	}
 
+	/* ==========================================================================
+	TYPOGRAPHY SYSTEM
+	========================================================================== */
 
-	.he-xxl, .he-xxl *, 
-	.he-xl, .he-xl *, 
-	.he-s, .he-s *, 
+	/* --------------------------------------------------------------------------
+	Headings (Reckless Condensed)
+	-------------------------------------------------------------------------- */
+
+	.he-xxl, .he-xxl *,
+	.he-xl, .he-xl *,
+	.he-l, .he-l *,
+	.he-m, .he-m *,
+	.he-s, .he-s *,
 	.he-xs, .he-xs *,
 	.he-xxs, .he-xxs *{
-		font-family: var(--font-display);
-		line-height:1;
+		font-family: var(--font-heading);
+		line-height: var(--lh-loose);
 		letter-spacing: 0;
 	}
-	.he-l, .he-l *,
-	.he-m, .he-m *{
-		font-family: var(--font-display);
-		line-height:1;
-		letter-spacing: -5%;
-	}
-	
+
+
+	/* --------------------------------------------------------------------------
+	Body (PP Mori)
+	-------------------------------------------------------------------------- */
+
 	form input[type="email"],
-	.bo-xxl, .bo-xxl *, 
-	.bo-xl, .bo-xl *{
-		font-family: var(--font-body);
-		line-height:1;
-		letter-spacing: -3%;
-	} 
+	.bo-xxl, .bo-xxl *,
+	.bo-xl, .bo-xl *,
 	.bo-l, .bo-l *{
 		font-family: var(--font-body);
-		line-height:1;
-		letter-spacing: -2%;
+		line-height: var(--lh-loose);
 	}
+
 	.bo-m, .bo-m *{
 		font-family: var(--font-body);
-		line-height:1.15;
-		letter-spacing: -3%;
+		line-height: 130%;
 	}
-	.bo-s, .bo-s *{
+
+	.bo-s, .bo-s *,
+	.bo-xs, .bo-xs *,
+	.bo-xxs, .bo-xxs *{
 		font-family: var(--font-body);
-		line-height:1.3;
-		letter-spacing: -2%;
-	} 
-	.bo-xs, .bo-xs *{
-		font-family: var(--font-body);
-		line-height:1.3;
-		letter-spacing: -4%;
+		line-height: 130%;
 	}
-	.bo-xxs, .bo-xxs * {
+
+
+	/* --------------------------------------------------------------------------
+	Subheadings (PP Mori)
+	-------------------------------------------------------------------------- */
+
+	.subhe-xl, .subhe-xl *,
+	.subhe-l, .subhe-l *,
+	.subhe-m, .subhe-m *,
+	.subhe-s, .subhe-s *,
+	.subhe-i, .subhe-i *{
 		font-family: var(--font-body);
-		letter-spacing: -2%;
+		line-height: var(--lh-base);
+		letter-spacing: 0;
 	}
-	.sp-i, .sp-i * {
+
+
+	/* --------------------------------------------------------------------------
+	Specials / Eyebrows (PP Mori)
+	-------------------------------------------------------------------------- */
+
+	.sp-xl, .sp-xl *,
+	.sp-l, .sp-l *,
+	.sp-m, .sp-m *,
+	.sp-s, .sp-s *,
+	.sp-xs, .sp-xs *,
+	.sp-i, .sp-i *{
+		font-family: var(--font-body);
+		font-weight: 600;
+		line-height: var(--lh-loose);
+		letter-spacing: .05em;
+		text-transform: uppercase;
+	}
+
+
+	/* --------------------------------------------------------------------------
+	Code
+	-------------------------------------------------------------------------- */
+
+	.code,
+	.code *{
 		font-family: var(--font-mono);
 	}
-	.code, .code * {
-		font-family: var(--font-mono);
-	}
-	.number-i {
+
+
+	/* --------------------------------------------------------------------------
+	Numbers (Display)
+	-------------------------------------------------------------------------- */
+
+	.number-i{
 		font-family: var(--font-display);
 		line-height: 1;
 	}
